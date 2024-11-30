@@ -72,11 +72,11 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-row items-center space-x-5">
-            <div className="w-[188.35px] h-[48px] rounded-[41.77px] bg-[#191918] cursor-pointer flex items-center justify-center space-x-3">
+            <div className="w-[188.35px] h-[48px] rounded-[41.77px] bg-[#191918] cursor-pointer border-[1px] border-transparent hover:border-white transition ease-in-out flex items-center justify-center space-x-3">
               <TelegramIcon />
               <p className="text-white text-[16.71px]">Join on Telegram</p>
             </div>
-            <div className="w-[188.35px] h-[48px] rounded-[41.77px] bg-[#FBFAF9] cursor-pointer flex items-center justify-center space-x-3">
+            <div className="w-[188.35px] h-[48px] rounded-[41.77px] bg-[#FBFAF9] cursor-pointer border-[1px] border-transparent hover:border-black transition ease-in-out flex items-center justify-center space-x-3">
               <TwitterIcon />
               <p className="text-[#080808] text-[16.71px]">Follow on twitter</p>
             </div>
