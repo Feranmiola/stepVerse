@@ -1,8 +1,9 @@
+import Image from "next/image";
 import React from "react";
 
 const Movement = () => {
   return (
-    <div className="w-full pt-20 flex flex-col items-center justify-center space-y-5">
+    <div className="w-full pt-20 flex flex-col items-center justify-center -space-y-14">
       <div className="flex flex-col space-y-5 items-center justify-center">
         <div className="w-[481px] h-[109px] flex flex-col justify-between items-center">
           <p className="text-[#191918] text-[32px] font-medium">
@@ -21,7 +22,12 @@ const Movement = () => {
       </div>
 
       <div className="w-[1200px] flex items-center justify-center flex-col space-y-10">
-        <div className="w-full h-[443px] rounded-2xl bg-neutral-600"></div>
+        <Image
+          src="https://res.cloudinary.com/debiu7z1b/image/upload/v1732981477/Frame_651_byhmpy.webp"
+          alt="Movement Image"
+          width={1200}
+          height={550}
+        />
       </div>
     </div>
   );
