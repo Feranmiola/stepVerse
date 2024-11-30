@@ -5,6 +5,77 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html {
+  @apply scroll-smooth;
+  scrollbar-width: none;
+  /* For Firefox */
+  -ms-overflow-style: none;
+  /* For Internet Explorer and Edge */
+}
+
+
+
+
+/* Only apply custom scrollbar on large screens */
+@media screen and (min-width: 1024px) {
+
+  /* Hide default scrollbar */
+  html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Custom scrollbar container */
+  body {
+    position: relative;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background: transparent;
+    z-index: 9999;
+    pointer-events: none;
+  }
+
+  /* Custom scrollbar thumb */
+  body::after {
+    background: #55C056;
+    /* Updated to the requested color */
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  /* Show scrollbar when scrolling */
+  body.is-scrolling::after {
+    opacity: 1;
+  }
+
+  /* Adjust scrollbar position based on scroll percentage */
+  body::after {
+    top: var(--scroll-top, 0px);
+    height: var(--scrollbar-height, 20%);
+  }
+}
+
+
+
+
+
+
+
+
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
