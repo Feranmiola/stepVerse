@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-const { fontFamily } = require('tailwindcss/defaultTheme')
 
 const config: Config = {
     darkMode: ["class"],
@@ -10,9 +9,10 @@ const config: Config = {
   ],
   theme: {
   	extend: {
-  		fontFamily: {
-  			geist: ['var(--font-geist)', ...fontFamily.sans]
-  		},
+		fontFamily: {
+			geist: ['Geist', 'sans-serif'],
+			inter: ['Inter', 'sans-serif'],
+		  },
   		colors: {
   			dark: '#191918',
   			background: 'hsl(var(--background))',

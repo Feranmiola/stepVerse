@@ -6,7 +6,7 @@ const HowItWorks = () => {
         <div className='w-[1200px] flex flex-col space-y-10'>
             <div className='flex flex-col space-y-2'>
                 <p className='text-[#55C056] text-[15px]'>How it works</p>
-                <p className='text-[32px] w-[341px] font-medium leading-none'>Transform Your Health, One Step at a Time.</p>
+                <p className='text-[32px] w-[341px] font-medium font-inter leading-none'>Transform Your Health, One Step at a Time.</p>
             </div>
 
 
