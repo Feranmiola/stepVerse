@@ -32,7 +32,7 @@ const Features = () => {
     >
       <motion.div
         id="leftText"
-        className="sticky top-20 flex flex-col space-y-4 h-[calc(100vh-30rem)]"
+        className="sticky top-20 flex flex-col space-y-4 h-[calc(100vh-40rem)]"
         variants={containerVariants}
       >
         <motion.p
