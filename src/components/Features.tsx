@@ -66,7 +66,7 @@ const Features = () => {
         >
           <div className="w-full h-[280px] rounded-2xl bg-neutral-400">
             <Image
-              src="/placeholder.svg?height=280&width=590"
+              src="https://res.cloudinary.com/debiu7z1b/image/upload/v1732983557/Frame_562_wyv5xm.webp"
               alt="Fitness Meets Gaming"
               width={590}
               height={280}
@@ -91,7 +91,7 @@ const Features = () => {
         >
           <div className="w-full h-[280px] rounded-2xl bg-neutral-400">
             <Image
-              src="/placeholder.svg?height=280&width=590"
+              src="https://res.cloudinary.com/debiu7z1b/image/upload/v1732983557/1Frame_562_gaomv8.webp"
               alt="Real-World Rewards"
               width={590}
               height={280}
@@ -100,12 +100,12 @@ const Features = () => {
           </div>
           <div className="w-[512px] flex flex-col space-y-2">
             <p className="text-[#191918] font-semibold text-[19px]">
-              Real-World Rewards
+              Family & Community
             </p>
             <p className="text-base text-[#4C4C4C]">
-              Your steps aren't just numbers—they're currency. Earn points for
-              your activity and redeem them for exclusive discounts, gift cards,
-              and merchandise from our partner brands.
+              Create a family or friend group to collectively track progress.
+              Celebrate milestones, inspire each other, and build a healthier
+              community together.
             </p>
           </div>
         </motion.div>
@@ -116,7 +116,7 @@ const Features = () => {
         >
           <div className="w-full h-[280px] rounded-2xl bg-neutral-400">
             <Image
-              src="/placeholder.svg?height=280&width=590"
+              src="https://res.cloudinary.com/debiu7z1b/image/upload/v1732983557/2Frame_562_nx9vcl.webp"
               alt="Social Connectivity"
               width={590}
               height={280}
@@ -125,12 +125,12 @@ const Features = () => {
           </div>
           <div className="w-[512px] flex flex-col space-y-2">
             <p className="text-[#191918] font-semibold text-[19px]">
-              Social Connectivity
+              Marketplace
             </p>
             <p className="text-base text-[#4C4C4C]">
-              Connect with friends, join communities, and participate in global
-              events. StepVerse makes fitness a shared adventure, motivating you
-              to push further together.
+              Use your SV Points to purchase tools, gear, or exclusive items in
+              our in-app marketplace. Keep upgrading your experience to unlock
+              more exciting rewards.
             </p>
           </div>
         </motion.div>
@@ -141,7 +141,7 @@ const Features = () => {
         >
           <div className="w-full h-[280px] rounded-2xl bg-neutral-400">
             <Image
-              src="/placeholder.svg?height=280&width=590"
+              src="https://res.cloudinary.com/debiu7z1b/image/upload/v1732983558/3Frame_562_zsmd7j.webp"
               alt="Personalized Health Insights"
               width={590}
               height={280}
@@ -150,12 +150,12 @@ const Features = () => {
           </div>
           <div className="w-[512px] flex flex-col space-y-2">
             <p className="text-[#191918] font-semibold text-[19px]">
-              Personalized Health Insights
+              Leaderboard Challenges
             </p>
             <p className="text-base text-[#4C4C4C]">
-              Get tailored recommendations and insights based on your activity
-              patterns. Our AI-powered system helps you understand your health
-              trends and suggests ways to improve.
+              Stay motivated with global leaderboards. Track your rankings
+              daily, weekly, and monthly. Compete with friends or become the
+              ultimate StepVerse champion.
             </p>
           </div>
         </motion.div>
@@ -166,7 +166,7 @@ const Features = () => {
         >
           <div className="w-full h-[280px] rounded-2xl bg-neutral-400">
             <Image
-              src="/placeholder.svg?height=280&width=590"
+              src="https://res.cloudinary.com/debiu7z1b/image/upload/v1732983558/4Frame_562_mhbu0l.webp"
               alt="Seamless Device Integration"
               width={590}
               height={280}
@@ -175,12 +175,12 @@ const Features = () => {
           </div>
           <div className="w-[512px] flex flex-col space-y-2">
             <p className="text-[#191918] font-semibold text-[19px]">
-              Seamless Device Integration
+              Treasure Hunts
             </p>
             <p className="text-base text-[#4C4C4C]">
-              StepVerse works with a wide range of fitness trackers and
-              smartwatches. Sync your favorite devices effortlessly and keep all
-              your health data in one place.
+              Explore real-world locations and uncover hidden treasures. From
+              cash rewards to exclusive in-game perks, there’s always something
+              exciting waiting for you.
             </p>
           </div>
         </motion.div>
