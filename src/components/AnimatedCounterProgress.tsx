@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion'
 
 const useCounter = (initial: number, target: number, duration: number, isAnimating: boolean) => {
@@ -13,15 +13,13 @@ const useCounter = (initial: number, target: number, duration: number, isAnimati
   return useTransform(count, (value) => Math.max(Math.round(value), initial))
 }
 
-export const AnimatedCounterProgress: React.FC = () => {
-  const [isHovered, setIsHovered] = useState(false)
+export const AnimatedCounterProgress: React.FC<{ isHovered: boolean }> = ({ isHovered }) => {
   const progress = useSpring(0.5, { stiffness: 100, damping: 30 })
   const count = useCounter(1000, 2500, 1, isHovered)
 
-  const handleHover = (hovering: boolean) => {
-    setIsHovered(hovering)
-    progress.set(hovering ? 1 : 0.5)
-  }
+  useEffect(() => {
+    progress.set(isHovered ? 1 : 0.5)
+  }, [isHovered, progress])
 
   const width = 120
   const strokeWidth = 6
@@ -34,8 +32,6 @@ export const AnimatedCounterProgress: React.FC = () => {
   return (
     <div 
       className="relative inline-flex items-center justify-center w-[120px] h-[120px]"
-      onMouseEnter={() => handleHover(true)}
-      onMouseLeave={() => handleHover(false)}
     >
       <svg 
         width={width} 
