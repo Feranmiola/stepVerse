@@ -33,7 +33,7 @@ const HowItWorks: React.FC = () => {
           >
             <motion.div 
               id="card1" 
-              whileHover={{ boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)" }}
+              // whileHover={{ boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)" }}
               className="w-[387px] h-[360px] rounded-2xl flex items-center justify-center bg-[#FBFAF9]"
             >
               <div className="w-[295px] h-[203.1px] flex flex-col justify-evenly rounded-[12.36px] bg-white">
@@ -72,7 +72,7 @@ const HowItWorks: React.FC = () => {
           >
             <motion.div 
               className="w-[387px] h-[360px] rounded-2xl bg-[#FBFAF9]"
-              whileHover={{ boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)" }}
+              // whileHover={{ boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)" }}
             ></motion.div>
 
             <div className="flex flex-col w-[387px] h-[101px] justify-between">
@@ -98,7 +98,7 @@ const HowItWorks: React.FC = () => {
           >
             <motion.div 
               className="w-[387px] h-[360px] rounded-2xl bg-[#FBFAF9]"
-              whileHover={{ boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)" }}
+              // whileHover={{ boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)" }}
             ></motion.div>
 
             <div className="flex flex-col w-[387px] h-[101px] justify-between">
