@@ -5,6 +5,7 @@ import LeftIcons from "../Icons/LeftIcons";
 import RightIcons from "../Icons/RightIcons";
 import TelegramIcon from "../Icons/TelegramIcon";
 import TwitterIcon from "../Icons/TwitterIcon";
+import FAQ from "@/components/FAQ";
 
 export default function Home() {
   return (
@@ -38,6 +39,7 @@ export default function Home() {
       <HowItWorks />
       <Features />
 			<Movement/>
+			<FAQ/>
     </div>
   );
 }
