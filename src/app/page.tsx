@@ -1,8 +1,9 @@
-import HowItWorks from "./components/HowItWorks";
-import LeftIcons from "./Icons/LeftIcons";
-import RightIcons from "./Icons/RightIcons";
-import TelegramIcon from "./Icons/TelegramIcon";
-import TwitterIcon from "./Icons/TwitterIcon";
+import Features from "../components/Features";
+import HowItWorks from "../components/HowItWorks";
+import LeftIcons from "../Icons/LeftIcons";
+import RightIcons from "../Icons/RightIcons";
+import TelegramIcon from "../Icons/TelegramIcon";
+import TwitterIcon from "../Icons/TwitterIcon";
 
 
 export default function Home() {
@@ -32,6 +33,7 @@ export default function Home() {
       </div>
 
       <HowItWorks/>
+      <Features/>
     
     </div>
   );
