@@ -6,6 +6,7 @@ import RightIcons from "../Icons/RightIcons";
 import TelegramIcon from "../Icons/TelegramIcon";
 import TwitterIcon from "../Icons/TwitterIcon";
 import FAQ from "@/components/FAQ";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -40,6 +41,7 @@ export default function Home() {
       <Features />
 			<Movement/>
 			<FAQ/>
+			<Footer/>
     </div>
   );
 }
