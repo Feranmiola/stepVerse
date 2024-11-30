@@ -1,3 +1,4 @@
+import HowItWorks from "./components/HowItWorks";
 import LeftIcons from "./Icons/LeftIcons";
 import RightIcons from "./Icons/RightIcons";
 import TelegramIcon from "./Icons/TelegramIcon";
@@ -6,7 +7,7 @@ import TwitterIcon from "./Icons/TwitterIcon";
 
 export default function Home() {
   return (
-    <div className="bg-white w-screen">
+    <div className="bg-white w-screen flex flex-col">
 
       <div className="flex flex-row w-full pt-[10rem] items-center justify-between">
         <LeftIcons/>
@@ -29,6 +30,8 @@ export default function Home() {
         </div>
         <RightIcons/>
       </div>
+
+      <HowItWorks/>
     
     </div>
   );

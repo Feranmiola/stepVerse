@@ -12,7 +12,7 @@ const config: Config = {
   	extend: {
 		fontFamily: {
 			geist: ['var(--font-geist)', ...fontFamily.sans],
-		  },
+		  },	
   		colors: {
 			'dark' : "#191918",
   			background: 'hsl(var(--background))',
