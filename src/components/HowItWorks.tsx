@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { AnimatedCounterProgress } from "./AnimatedCounterProgress";
+import EarnRewardsContent from "./EarnRewardsContent";
+import FitnessJourneyContent from "./FitnexxJourneyContent";
 
 const HowItWorks: React.FC = () => {
   const [hoverIndex, setHoverIndex] = useState(0);
@@ -71,9 +73,11 @@ const HowItWorks: React.FC = () => {
             transition={{ duration: 0.3 }}
           >
             <motion.div 
-              className="w-[387px] h-[360px] rounded-2xl bg-[#FBFAF9]"
-              // whileHover={{ boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)" }}
-            ></motion.div>
+              className="w-[387px] h-[360px] rounded-2xl bg-[#FBFAF9] flex items-center justify-center"
+            >
+
+              <FitnessJourneyContent/>
+            </motion.div>
 
             <div className="flex flex-col w-[387px] h-[101px] justify-between">
               <p className="text-[19px] font-semibold text-[#191918]">
@@ -97,9 +101,10 @@ const HowItWorks: React.FC = () => {
             transition={{ duration: 0.3 }}
           >
             <motion.div 
-              className="w-[387px] h-[360px] rounded-2xl bg-[#FBFAF9]"
-              // whileHover={{ boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)" }}
-            ></motion.div>
+              className="w-[387px] h-[360px] rounded-2xl bg-[#FBFAF9] flex items-center justify-center"              
+            >
+              <EarnRewardsContent/>
+            </motion.div>
 
             <div className="flex flex-col w-[387px] h-[101px] justify-between">
               <p className="text-[19px] font-semibold text-[#191918]">
