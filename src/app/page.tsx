@@ -1,8 +1,6 @@
-
 /* eslint-disable */
 // @ts-nocheck
-'use client'
-
+"use client";
 
 import Movement from "@/components/Movement";
 import Features from "../components/Features";
@@ -16,8 +14,6 @@ import Footer from "@/components/Footer";
 import { useEffect } from "react";
 
 export default function Home() {
-
-  
   useEffect(() => {
     // Ensure this only runs in the browser
     if (typeof window === "undefined") return;
@@ -26,39 +22,60 @@ export default function Home() {
 
     // Function to update scrollbar properties
     function updateScrollbar() {
-      const scrollPercentage = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-      const scrollbarHeight = (window.innerHeight / document.documentElement.scrollHeight) * window.innerHeight;
-      const scrollTop = scrollPercentage * (window.innerHeight - scrollbarHeight);
+      const scrollPercentage =
+        window.scrollY /
+        (document.documentElement.scrollHeight - window.innerHeight);
+      const scrollbarHeight =
+        (window.innerHeight / document.documentElement.scrollHeight) *
+        window.innerHeight;
+      const scrollTop =
+        scrollPercentage * (window.innerHeight - scrollbarHeight);
 
-      document.body.style.setProperty('--scroll-top', `${scrollTop}px`);
-      document.body.style.setProperty('--scrollbar-height', `${scrollbarHeight}px`);
+      document.body.style.setProperty("--scroll-top", `${scrollTop}px`);
+      document.body.style.setProperty(
+        "--scrollbar-height",
+        `${scrollbarHeight}px`
+      );
 
-      document.body.classList.add('is-scrolling');
+      document.body.classList.add("is-scrolling");
 
       clearTimeout(scrollTimer);
       scrollTimer = setTimeout(() => {
-        document.body.classList.remove('is-scrolling');
+        document.body.classList.remove("is-scrolling");
       }, 1000);
     }
 
     // Add event listeners for scroll and resize
-    window.addEventListener('scroll', updateScrollbar);
-    window.addEventListener('resize', updateScrollbar);
+    window.addEventListener("scroll", updateScrollbar);
+    window.addEventListener("resize", updateScrollbar);
 
     // Initial call to set the correct scrollbar size
     updateScrollbar();
 
     // Cleanup event listeners on component unmount
     return () => {
-      window.removeEventListener('scroll', updateScrollbar);
-      window.removeEventListener('resize', updateScrollbar);
+      window.removeEventListener("scroll", updateScrollbar);
+      window.removeEventListener("resize", updateScrollbar);
     };
   }, []); // Empty dependency array to run only once on mount
 
-
-
   return (
     <div className="bg-white w-screen flex flex-col">
+      <div className="w-full flex flex-row items-center py-5 bg-white bg-opacity-80 justify-center space-x-[20rem] z-[9999] fixed">
+        <p className="text-[#191918] text-[22.01px]">StepVerse</p>
+
+        <div className="flex flex-row items-center space-x-10">
+          <p className="text-[#6B6B6B] cursor-pointer hover:text-black transition ease-in-out text-sm">How it Works</p>
+          <p className="text-[#6B6B6B] cursor-pointer hover:text-black transition ease-in-out text-sm">Features</p>
+          <p className="text-[#6B6B6B] cursor-pointer hover:text-black transition ease-in-out text-sm">FAQs</p>
+          <p className="text-[#6B6B6B] cursor-pointer hover:text-black transition ease-in-out text-sm">Community</p>
+        </div>
+        
+        <div className="w-[173px] h-[48px] rounded-[41.77px] bg-[#191918] cursor-pointer border-[1px] border-transparent hover:border-white transition ease-in-out flex items-center justify-center space-x-1">
+          <p className="text-white text-[14px]">Launch on Telegram</p>
+        </div>
+      
+      </div>
       <div className="flex flex-row w-full pt-[10rem] items-center justify-between">
         <LeftIcons />
         <div className="flex flex-col items-center justify-center space-y-7">
@@ -87,9 +104,9 @@ export default function Home() {
 
       <HowItWorks />
       <Features />
-			<Movement/>
-			<FAQ/>
-			<Footer/>
+      <Movement />
+      <FAQ />
+      <Footer />
     </div>
   );
 }
