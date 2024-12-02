@@ -5,6 +5,10 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
 import BlueCHeck from "../Icons/BlueCHeck";
+import HealthBenefits from "@/Icons/HealthBenefits";
+import RealRewardsIcon from "@/Icons/RealRewardsIcon";
+import InclusiveIcon from "@/Icons/InclusiveIcon";
+import DataDrivenProgressIcon from "@/Icons/DataDrivenProgressIcon";
 
 const Features = () => {
   const isDesktop = useMediaQuery({ minWidth: 768 });
@@ -20,24 +24,40 @@ const Features = () => {
       description: "Make every step count with gamified features like treasure hunts, team challenges, and step competitions. StepVerse isn't just a fitness app—it's a game that keeps you engaged and moving.",
       image: "https://res.cloudinary.com/debiu7z1b/image/upload/v1732983557/Frame_562_wyv5xm.webp",
       color: "#55C056",
+      leftContent: 'Proven Health Benefits',
+      leftContentIcon: HealthBenefits
     },
     {
       title: "Family & Community",
       description: "Create a family or friend group to collectively track progress. Celebrate milestones, inspire each other, and build a healthier community together.",
       image: "https://res.cloudinary.com/debiu7z1b/image/upload/v1732983557/1Frame_562_gaomv8.webp",
       color: "#F63F00",
+      leftContent: 'Real Rewards',
+      leftContentIcon: RealRewardsIcon
     },
     {
       title: "Marketplace",
       description: "Use your SV Points to purchase tools, gear, or exclusive items in our in-app marketplace. Keep upgrading your experience to unlock more exciting rewards.",
       image: "https://res.cloudinary.com/debiu7z1b/image/upload/v1732983557/2Frame_562_nx9vcl.webp",
       color: "#55C056",
+      leftContent: 'Inclusive Platform',
+      leftContentIcon: InclusiveIcon
     },
     {
       title: "Leaderboard Challenges",
       description: "Stay motivated with global leaderboards. Track your rankings daily, weekly, and monthly. Compete with friends or become the ultimate StepVerse champion.",
       image: "https://res.cloudinary.com/debiu7z1b/image/upload/v1732983558/3Frame_562_zsmd7j.webp",
       color: "#E292E5",
+      leftContent: 'Data-Driven Progress',
+      leftContentIcon: DataDrivenProgressIcon
+    },
+    {
+      title: "Treasure Hunts",
+      description: "Explore real-world locations and uncover hidden treasures. From cash rewards to exclusive in-game perks, there's always something exciting waiting for you.",
+      image: "https://res.cloudinary.com/debiu7z1b/image/upload/v1732983558/4Frame_562_mhbu0l.webp",
+      color: "#E292E5",
+      leftContent: '',
+      leftContentIcon: null
     },
   ];
 
@@ -93,8 +113,8 @@ const Features = () => {
                   className="flex flex-row space-x-2 items-center mb-4"
                   style={{ opacity, y }}
                 >
-                  <BlueCHeck colour={feature.color} />
-                  <p className="text-base text-[#424242]">{feature.title}</p>
+                  {feature.leftContentIcon && <feature.leftContentIcon />}
+                  <p className="text-base text-[#424242]">{feature.leftContent}</p>
                 </motion.div>
               );
             })}
@@ -136,7 +156,7 @@ const Features = () => {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="w-full max-w-[512px]">
+                  <div className="w-full">
                     <h2 className="text-[#191918] font-semibold text-[19px] mb-2">{feature.title}</h2>
                     <p className="text-base text-[#4C4C4C]">{feature.description}</p>
                   </div>
