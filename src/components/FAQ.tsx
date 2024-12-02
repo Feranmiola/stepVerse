@@ -9,8 +9,10 @@ import {
   AccordionTrigger,
 } from "./ui/accordion";
 import ForwardIcon from "@/Icons/ForwardIcon";
+import { useRouter } from "next-nprogress-bar";
 
 const FAQ = () => {
+  const router = useRouter();
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
@@ -75,9 +77,9 @@ const FAQ = () => {
             Frequently Asked Questions
           </motion.p>
         </motion.div>
-        <div className="h-[376px]">
+        <div className="h-[396px]">
           <motion.div
-            className="w-[590px] h-[376px] flex flex-col justify-between"
+            className="w-[590px] h-[396px] flex flex-col justify-between"
             variants={accordionVariants}
           >
             <Accordion type="single" collapsible>
@@ -128,12 +130,13 @@ const FAQ = () => {
             </Accordion>
 
             <motion.div
-              className="flex flex-row space-x-2 items-center"
+              className="flex flex-row space-x-2 items-center cursor-pointer pt-5"
               variants={itemVariants}
               whileHover={{ x: 5 }}
               transition={{ duration: 0.2 }}
+              onClick={() => router.push('/faq')}
             >
-              <p className="text-[#55C056] text-[18px]">See more</p>
+              <p className="text-[#55C056]  text-[18px]">See more</p>
               <ForwardIcon />
             </motion.div>
           </motion.div>
