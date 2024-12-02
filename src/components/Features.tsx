@@ -1,246 +1,124 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import BlueCHeck from "../Icons/BlueCHeck";
 
 const Features = () => {
   const containerRef = useRef(null);
-  const [visibleItems, setVisibleItems] = useState(1);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1,
-      },
+  const features = [
+    {
+      title: "Fitness Meets Gaming",
+      description: "Make every step count with gamified features like treasure hunts, team challenges, and step competitions. StepVerse isn't just a fitness app—it's a game that keeps you engaged and moving.",
+      image: "https://res.cloudinary.com/debiu7z1b/image/upload/v1732983557/Frame_562_wyv5xm.webp",
+      color: "#55C056",
     },
-  };
+    {
+      title: "Family & Community",
+      description: "Create a family or friend group to collectively track progress. Celebrate milestones, inspire each other, and build a healthier community together.",
+      image: "https://res.cloudinary.com/debiu7z1b/image/upload/v1732983557/1Frame_562_gaomv8.webp",
+      color: "#F63F00",
+    },
+    {
+      title: "Marketplace",
+      description: "Use your SV Points to purchase tools, gear, or exclusive items in our in-app marketplace. Keep upgrading your experience to unlock more exciting rewards.",
+      image: "https://res.cloudinary.com/debiu7z1b/image/upload/v1732983557/2Frame_562_nx9vcl.webp",
+      color: "#55C056",
+    },
+    {
+      title: "Leaderboard Challenges",
+      description: "Stay motivated with global leaderboards. Track your rankings daily, weekly, and monthly. Compete with friends or become the ultimate StepVerse champion.",
+      image: "https://res.cloudinary.com/debiu7z1b/image/upload/v1732983558/3Frame_562_zsmd7j.webp",
+      color: "#E292E5",
+    },
+  ];
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
-
-  const additionalItemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
-
-  const isInView = useInView(containerRef, { amount: 0.2, once: false });
-
-  useEffect(() => {
-    if (isInView && visibleItems < 4) {
-      const timer = setTimeout(() => {
-        setVisibleItems((prev) => Math.min(prev + 1, 4));
-      }, 800);
-      return () => clearTimeout(timer);
-    }
-  }, [isInView, visibleItems]);
+  const totalScrollLength = features.length;
 
   return (
-    <motion.div
-      ref={containerRef}
-      className="relative flex flex-row justify-center items-start space-x-[10rem] py-20 lg:min-h-screen"
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-    >
-      <motion.div
-        id="leftText"
-        className="sticky top-[6.5rem] flex flex-col space-y-4 h-[calc(100vh-40rem)]"
-        variants={containerVariants}
-      >
-        <motion.p
-          className="text-[#55C056] text-[15px]"
-          variants={itemVariants}
-        >
-          Features
-        </motion.p>
-        <motion.p
-          className="text-[32px] w-[414px] font-medium leading-none"
-          variants={itemVariants}
-        >
-          Turn your steps into fun challenges and real rewards.
-        </motion.p>
-        <motion.div
-          className="flex flex-row space-x-2 items-center"
-          variants={itemVariants}
-        >
-          <BlueCHeck />
-          <p className="text-base text-[#424242]">Proven Health Benefits</p>
-        </motion.div>
+    <div ref={containerRef} className="relative" style={{ height: `${totalScrollLength * 100}vh` }}>
+      <div className="sticky top-0 left-0 w-full h-screen flex items-center justify-center overflow-hidden">
+        <div className="flex w-full max-w-7xl px-4 h-full">
+          <motion.div className="w-1/2 pr-8 flex flex-col justify-center">
+            <motion.p className="text-[#55C056] text-[15px] mb-4">Features</motion.p>
+            <motion.p className="text-[32px] font-medium leading-none mb-8">
+              Turn your steps into fun challenges and real rewards.
+            </motion.p>
+            {features.map((feature, index) => {
+              const progress = useTransform(
+                scrollYProgress,
+                [index / totalScrollLength, (index + 0.5) / totalScrollLength],
+                [0, 1]
+              );
+              const opacity = useTransform(progress, [0, 0.5, 1], [0, 1, 1]);
+              const y = useTransform(progress, [0, 0.5, 1], [20, 0, 0]);
 
-        {visibleItems >= 2 && (
-          <motion.div
-            className="flex flex-row space-x-2 items-center"
-            variants={additionalItemVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <BlueCHeck colour={'#F63F00'} />
-            <p className="text-base text-[#424242]">Real Rewards</p>
+              return (
+                <motion.div
+                  key={index}
+                  className="flex flex-row space-x-2 items-center mb-4"
+                  style={{ opacity, y }}
+                >
+                  <BlueCHeck colour={feature.color} />
+                  <p className="text-base text-[#424242]">{feature.title}</p>
+                </motion.div>
+              );
+            })}
           </motion.div>
-        )}
+          <div className="w-1/2 relative h-full flex items-center justify-center overflow-hidden">
+            {features.map((feature, index) => {
+              const isLast = index === features.length - 1;
+              const progress = useTransform(
+                scrollYProgress,
+                [index / totalScrollLength, (index + 1) / totalScrollLength],
+                [0, 1]
+              );
+              const opacity = useTransform(progress, [0, 0.2, 0.8, 1], [0, 1, 1, isLast ? 1 : 0]);
+              const y = useTransform(progress, [0, 0.2, 0.8, 1], ["50%", "0%", "0%", isLast ? "0%" : "-50%"]);
+              const scale = useTransform(progress, [0, 0.2, 0.8, 1], [0.8, 1, 1, isLast ? 1 : 0.8]);
 
-        {visibleItems >= 3 && (
-          <motion.div
-            className="flex flex-row space-x-2 items-center"
-            variants={additionalItemVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <BlueCHeck colour={'#55C056'} />
-            <p className="text-base text-[#424242]">Inclusive Platform</p>
-          </motion.div>
-        )}
-
-        {visibleItems >= 4 && (
-          <motion.div
-            className="flex flex-row space-x-2 items-center"
-            variants={additionalItemVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <BlueCHeck colour={"#E292E5"} />
-            <p className="text-base text-[#424242]">Data-Driven Progress</p>
-          </motion.div>
-        )}
-      </motion.div>
-
-      <motion.div
-        className="flex flex-col space-y-16"
-        variants={containerVariants}
-      >
-        <motion.div
-          className="w-[590px] flex flex-col space-y-6"
-          variants={itemVariants}
-        >
-          <div className="w-full h-[280px] rounded-2xl bg-neutral-400">
-            <Image
-              src="https://res.cloudinary.com/debiu7z1b/image/upload/v1732983557/Frame_562_wyv5xm.webp"
-              alt="Fitness Meets Gaming"
-              width={590}
-              height={280}
-              className="rounded-2xl"
-            />
+              return (
+                <motion.div
+                  key={index}
+                  style={{ 
+                    opacity,
+                    scale,
+                    y,
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    pointerEvents: progress.get() > 0.5 ? "auto" : "none",
+                  }}
+                  className="flex flex-col items-center justify-center p-8"
+                >
+                  <div className="w-full max-h-[50vh] rounded-2xl overflow-hidden mb-6">
+                    <Image
+                      src={feature.image}
+                      alt={feature.title}
+                      width={590}
+                      height={280}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="w-full max-w-[512px]">
+                    <h2 className="text-[#191918] font-semibold text-[19px] mb-2">{feature.title}</h2>
+                    <p className="text-base text-[#4C4C4C]">{feature.description}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
-          <div className="w-[512px] flex flex-col space-y-2">
-            <p className="text-[#191918] font-semibold text-[19px]">
-              Fitness Meets Gaming
-            </p>
-            <p className="text-base text-[#4C4C4C]">
-              Make every step count with gamified features like treasure hunts,
-              team challenges, and step competitions. StepVerse isn't just a
-              fitness app—it's a game that keeps you engaged and moving.
-            </p>
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="w-[590px] flex flex-col space-y-6"
-          variants={itemVariants}
-        >
-          <div className="w-full h-[280px] rounded-2xl bg-neutral-400">
-            <Image
-              src="https://res.cloudinary.com/debiu7z1b/image/upload/v1732983557/1Frame_562_gaomv8.webp"
-              alt="Real-World Rewards"
-              width={590}
-              height={280}
-              className="rounded-2xl"
-            />
-          </div>
-          <div className="w-[512px] flex flex-col space-y-2">
-            <p className="text-[#191918] font-semibold text-[19px]">
-              Family & Community
-            </p>
-            <p className="text-base text-[#4C4C4C]">
-              Create a family or friend group to collectively track progress.
-              Celebrate milestones, inspire each other, and build a healthier
-              community together.
-            </p>
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="w-[590px] flex flex-col space-y-6"
-          variants={itemVariants}
-        >
-          <div className="w-full h-[280px] rounded-2xl bg-neutral-400">
-            <Image
-              src="https://res.cloudinary.com/debiu7z1b/image/upload/v1732983557/2Frame_562_nx9vcl.webp"
-              alt="Social Connectivity"
-              width={590}
-              height={280}
-              className="rounded-2xl"
-            />
-          </div>
-          <div className="w-[512px] flex flex-col space-y-2">
-            <p className="text-[#191918] font-semibold text-[19px]">
-              Marketplace
-            </p>
-            <p className="text-base text-[#4C4C4C]">
-              Use your SV Points to purchase tools, gear, or exclusive items in
-              our in-app marketplace. Keep upgrading your experience to unlock
-              more exciting rewards.
-            </p>
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="w-[590px] flex flex-col space-y-6"
-          variants={itemVariants}
-        >
-          <div className="w-full h-[280px] rounded-2xl bg-neutral-400">
-            <Image
-              src="https://res.cloudinary.com/debiu7z1b/image/upload/v1732983558/3Frame_562_zsmd7j.webp"
-              alt="Personalized Health Insights"
-              width={590}
-              height={280}
-              className="rounded-2xl"
-            />
-          </div>
-          <div className="w-[512px] flex flex-col space-y-2">
-            <p className="text-[#191918] font-semibold text-[19px]">
-              Leaderboard Challenges
-            </p>
-            <p className="text-base text-[#4C4C4C]">
-              Stay motivated with global leaderboards. Track your rankings
-              daily, weekly, and monthly. Compete with friends or become the
-              ultimate StepVerse champion.
-            </p>
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="w-[590px] flex flex-col space-y-6"
-          variants={itemVariants}
-        >
-          <div className="w-full h-[280px] rounded-2xl bg-neutral-400">
-            <Image
-              src="https://res.cloudinary.com/debiu7z1b/image/upload/v1732983558/4Frame_562_mhbu0l.webp"
-              alt="Seamless Device Integration"
-              width={590}
-              height={280}
-              className="rounded-2xl"
-            />
-          </div>
-          <div className="w-[512px] flex flex-col space-y-2">
-            <p className="text-[#191918] font-semibold text-[19px]">
-              Treasure Hunts
-            </p>
-            <p className="text-base text-[#4C4C4C]">
-              Explore real-world locations and uncover hidden treasures. From
-              cash rewards to exclusive in-game perks, there's always something
-              exciting waiting for you.
-            </p>
-          </div>
-        </motion.div>
-      </motion.div>
-    </motion.div>
+        </div>
+      </div>
+    </div>
   );
 };
 
