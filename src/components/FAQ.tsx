@@ -119,7 +119,7 @@ const FAQ = () => {
             ))}
           </Accordion>
           <motion.div
-            className="flex flex-row space-x-2 items-center cursor-pointer pt-5"
+            className="flex flex-row space-x-2 items-center hover:bg-[#F2FFEF] bg-transparent transition ease-in-out w-[135px] h-[36px] rounded-[8px] justify-center cursor-pointer mt-5"
             variants={itemVariants}
             whileHover={{ x: 5 }}
             transition={{ duration: 0.2 }}
