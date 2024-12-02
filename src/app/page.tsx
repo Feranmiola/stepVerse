@@ -1,4 +1,4 @@
-/* eslint-disable */ 
+/* eslint-disable */
 // @ts-nocheck
 "use client";
 
@@ -15,10 +15,11 @@ import FAQ from "@/components/FAQ";
 import Starter from "@/components/Starter";
 
 export default function Home() {
-  useEffect(() => { // Ensure this only runs in the browser if (typeof window === "undefined") return;
+  useEffect(() => {
+    // Ensure this only runs in the browser if (typeof window === "undefined") return;
 
     let scrollTimer = 0;
-    
+
     // Function to update scrollbar properties
     function updateScrollbar() {
       const scrollPercentage =
@@ -29,46 +30,50 @@ export default function Home() {
         window.innerHeight;
       const scrollTop =
         scrollPercentage * (window.innerHeight - scrollbarHeight);
-    
+
       document.body.style.setProperty("--scroll-top", `${scrollTop}px`);
       document.body.style.setProperty(
         "--scrollbar-height",
         `${scrollbarHeight}px`
       );
-    
+
       document.body.classList.add("is-scrolling");
-    
+
       clearTimeout(scrollTimer);
       scrollTimer = setTimeout(() => {
         document.body.classList.remove("is-scrolling");
       }, 1000);
     }
-    
+
     // Add event listeners for scroll and resize
     window.addEventListener("scroll", updateScrollbar);
     window.addEventListener("resize", updateScrollbar);
-    
+
     // Initial call to set the correct scrollbar size
     updateScrollbar();
-    
+
     // Cleanup event listeners on component unmount
     return () => {
       window.removeEventListener("scroll", updateScrollbar);
       window.removeEventListener("resize", updateScrollbar);
     };
-    }, [])
-
-
-
+  }, []);
 
   return (
     <div className="bg-white w-screen flex flex-col">
-      <Starter/>
-      <HowItWorks />
-      <Features />
-      <Movement />
-      <FAQ />
+      <Starter />
+      <div id="how-it-works" className="w-full">
+        <HowItWorks />
+      </div>
+      <div id="features" className="w-full">
+        <Features />
+      </div>
+      <div id="community" className="w-full">
+        <Movement />
+      </div>
+      <div id="faqs" className="w-full">
+        <FAQ />
+      </div>
     </div>
   );
 }
-
