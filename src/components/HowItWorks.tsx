@@ -1,17 +1,51 @@
 'use client'
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedCounterProgress } from "./AnimatedCounterProgress";
 import EarnRewardsContent from "./EarnRewardsContent";
 import FitnessJourneyContent from "./FitnexxJourneyContent";
 
 const HowItWorks: React.FC = () => {
-  const [hoverIndex, setHoverIndex] = useState(0);
+  const [hoverStates, setHoverStates] = useState([false, false, false]);
+  const [autoAnimationComplete, setAutoAnimationComplete] = useState(false);
+
+  useEffect(() => {
+    if (!autoAnimationComplete) {
+      const animationSequence = [
+        () => setHoverStates([true, false, false]),
+        () => setHoverStates([false, true, false]),
+        () => setHoverStates([false, false, true]),
+        () => setHoverStates([false, false, false])
+      ];
+
+      animationSequence.forEach((animation, index) => {
+        setTimeout(() => {
+          animation();
+          if (index === animationSequence.length - 1) {
+            setAutoAnimationComplete(true);
+          }
+        }, index * 1000);
+      });
+    }
+  }, [autoAnimationComplete]);
+
+  const handleMouseEnter = (index: number) => {
+    if (autoAnimationComplete) {
+      const newHoverStates = [false, false, false];
+      newHoverStates[index] = true;
+      setHoverStates(newHoverStates);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (autoAnimationComplete) {
+      setHoverStates([false, false, false]);
+    }
+  };
 
   const cardVariants = {
-    initial: { scale: 1, y: 50, opacity: 0 },
-    animate: { scale: 1, y: 0, opacity: 1 },
-    hover: { scale: 1.05 },
+    initial: { y: 50, opacity: 0 },
+    animate: { y: 0, opacity: 1 },
   };
 
   const titleVariants = {
@@ -53,24 +87,22 @@ const HowItWorks: React.FC = () => {
         </motion.div>
 
         <div className="flex w-full justify-between flex-row items-center">
-          {[1, 2, 3].map((index) => (
+          {[0, 1, 2].map((index) => (
             <motion.div
               key={index}
-              onMouseEnter={() => setHoverIndex(index)}
-              onMouseLeave={() => setHoverIndex(0)}
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
               variants={cardVariants}
               initial="initial"
               animate="animate"
-              whileHover="hover"
               transition={{ duration: 0.3, delay: index * 0.2 }}
               className="h-[486px] w-full flex flex-col justify-between"
             >
               <motion.div 
                 className={`w-[387px] h-[360px] rounded-2xl flex items-center justify-center bg-[#FBFAF9]`}
-                whileHover={{ boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)" }}
               >
                 <AnimatePresence>
-                  {index === 1 && (
+                  {index === 0 && (
                     <motion.div 
                       key="card1"
                       initial={{ opacity: 0 }}
@@ -81,7 +113,7 @@ const HowItWorks: React.FC = () => {
                     >
                       <p className="text-black text-[10.81px] px-3">Step Counter</p>
                       <div className="flex items-center justify-center">
-                        <AnimatedCounterProgress isHovered={hoverIndex === 1} />
+                        <AnimatedCounterProgress isHovered={hoverStates[0]} />
                       </div>
                       <div className="w-full flex flex-row items-center justify-between pt-3 px-3 border-t-[1.7px] border-[#F4F4F4]">
                         <p className="text-[#989898] text-[10.81px]">Today's Goal</p>
@@ -89,8 +121,8 @@ const HowItWorks: React.FC = () => {
                       </div>
                     </motion.div>
                   )}
-                  {index === 2 && <FitnessJourneyContent isHovered={hoverIndex === 2} />}
-                  {index === 3 && <EarnRewardsContent isHovered={hoverIndex === 3} />}
+                  {index === 1 && <FitnessJourneyContent isHovered={hoverStates[1]} />}
+                  {index === 2 && <EarnRewardsContent isHovered={hoverStates[2]} />}
                 </AnimatePresence>
               </motion.div>
 
@@ -100,14 +132,14 @@ const HowItWorks: React.FC = () => {
                 transition={{ delay: index * 0.3, duration: 0.5 }}
               >
                 <p className="text-[19px] font-semibold text-[#191918]">
-                  {index === 1 && "Sign Up and Start Moving"}
-                  {index === 2 && "Gamify Your Fitness Journey"}
-                  {index === 3 && "Earn Rewards"}
+                  {index === 0 && "Sign Up and Start Moving"}
+                  {index === 1 && "Gamify Your Fitness Journey"}
+                  {index === 2 && "Earn Rewards"}
                 </p>
                 <p className="text-[16px] w-full text-[#4C4C4C]">
-                  {index === 1 && "Join StepVerse through Telegram using your email, WhatsApp, or Telegram account. You're ready to play in minutes!"}
-                  {index === 2 && "Engage in friendly competitions, treasure hunts, and leaderboard rankings to make fitness a fun, interactive, and rewarding experience."}
-                  {index === 3 && "Turn your steps into SV Points, which can be used to unlock premium features, tools, and other exciting rewards in our marketplace."}
+                  {index === 0 && "Join StepVerse through Telegram using your email, WhatsApp, or Telegram account. You're ready to play in minutes!"}
+                  {index === 1 && "Engage in friendly competitions, treasure hunts, and leaderboard rankings to make fitness a fun, interactive, and rewarding experience."}
+                  {index === 2 && "Turn your steps into SV Points, which can be used to unlock premium features, tools, and other exciting rewards in our marketplace."}
                 </p>
               </motion.div>
             </motion.div>
