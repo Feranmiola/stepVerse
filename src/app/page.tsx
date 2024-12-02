@@ -13,6 +13,7 @@ import TelegramIcon from "../Icons/TelegramIcon";
 import TwitterIcon from "../Icons/TwitterIcon";
 import FAQ from "@/components/FAQ";
 import Starter from "@/components/Starter";
+import SEO from "@/components/SEO";
 
 export default function Home() {
   useEffect(() => {
@@ -61,6 +62,10 @@ export default function Home() {
 
   return (
     <div className="bg-white w-screen flex flex-col">
+      <SEO
+      title="StepVerse"
+      description="StepVerse is the ultimate fitness gaming experience built on Telegram Mini App where we make staying active fun and rewarding."
+      />
       <Starter />
       <div id="how-it-works" className="w-full">
         <HowItWorks />
