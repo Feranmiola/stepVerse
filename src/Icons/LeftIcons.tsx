@@ -2,8 +2,26 @@
 
 import React from "react"
 import { motion } from "framer-motion"
+import { useMediaQuery } from "react-responsive"
 
 const LeftIcons = () => {
+
+  const is5XLScreen = useMediaQuery({ minWidth: 4426 })
+  const is4XLScreen = useMediaQuery({ minWidth: 4026 })
+  const is3XLScreen = useMediaQuery({ minWidth: 3226 })
+  const is2XLScreen = useMediaQuery({ minWidth: 2426 })
+  const isXLScreen = useMediaQuery({ minWidth: 1920 })
+  const isMDScreen = useMediaQuery({ minWidth: 768, maxWidth: 1324 })
+
+  const svgSize = is5XLScreen ? { width: 726, height: 1000 } :
+                  is4XLScreen ? { width: 653, height: 900 } :
+                  is3XLScreen ? { width: 581, height: 800 } :
+                  is2XLScreen ? { width: 508, height: 700 } :
+                  isXLScreen ? { width: 435, height: 600 } :
+                  isMDScreen ? { width: 290, height: 400 } :
+                  { width: 363, height: 500 }
+
+
   const pathVariants = {
     hidden: { opacity: 0 },
     visible: (i: number) => ({
@@ -17,8 +35,8 @@ const LeftIcons = () => {
 
   return (
     <svg
-      width="363"
-      height="500"
+      width={svgSize.width}
+      height={svgSize.height}
       viewBox="0 0 363 500"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
