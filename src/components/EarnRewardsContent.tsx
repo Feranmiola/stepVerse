@@ -3,10 +3,59 @@
 import Aicon from "@/Icons/Aicon";
 import FireBlue from "@/Icons/FireBlue";
 import FireGreen from "@/Icons/FireGreen";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useMotionValue, useTransform, animate } from "framer-motion";
 
-const EarnRewardsContent = () => {
-  const [isHovering, setIsHovering] = useState(false);
+const EarnRewardsContent: React.FC<{ isHovered: boolean }> = ({ isHovered }) => {
+  const [isTwoThousand, setIsTwoThousand] = useState(false);
+  const [fireNumber, setFireNumber] = useState(20);
+  const countRef = useRef(1000);
+  const count = useMotionValue(1000);
+  const rounded = useTransform(count, (latest) => Math.round(latest));
+  const displayNumber = useTransform(rounded, (latest) => latest.toString());
+  const percentageRef = useRef(50);
+  const percentage = useMotionValue(50);
+  const roundedPercentage = useTransform(percentage, (latest) => Math.round(latest));
+
+  useEffect(() => {
+    if (isHovered && countRef.current < 2000) {
+      const animation = animate(count, 2000, {
+        duration: 2,
+        ease: "easeOut",
+        onUpdate: (latest) => {
+          countRef.current = latest;
+          percentageRef.current = (latest / 2000) * 100;
+          percentage.set(percentageRef.current);
+          
+          if (latest === 2000 && !isTwoThousand) {
+            setIsTwoThousand(true);
+            setFireNumber(21);
+          }
+        },
+      });
+
+      return () => animation.stop();
+    } else if (!isHovered) {
+      const animation = animate(count, 1000, {
+        duration: 1,
+        ease: "easeOut",
+        onUpdate: (latest) => {
+          countRef.current = latest;
+          percentageRef.current = (latest / 2000) * 100;
+          percentage.set(percentageRef.current);
+        },
+        onComplete: () => {
+          setIsTwoThousand(false);
+          setFireNumber(20);
+        },
+      });
+
+      return () => animation.stop();
+    }
+  }, [isHovered, count, percentage, isTwoThousand]);
+
+  const filledBars = useTransform(count, (latest) => Math.floor((latest / 2000) * 50));
+
   return (
     <div className="w-[292.26px] h-[165.44px] flex items-end justify-center relative">
       <div className="w-[271.26px] h-[143.44px] rounded-[11.36px] bg-white flex flex-col justify-evenly px-3">
@@ -14,7 +63,8 @@ const EarnRewardsContent = () => {
 
         <div className="w-full flex items-center justify-center">
           <p className="font-semibold tracking-tight text-[56.81px]">
-            1000<span className="text-[#ACB9C2] text-[28.4px]">/2000</span>
+            <motion.span>{displayNumber}</motion.span>
+            <span className="text-[#ACB9C2] text-[28.4px]">/2000</span>
           </p>
         </div>
 
@@ -26,409 +76,24 @@ const EarnRewardsContent = () => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <rect
-              x="0.912323"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#55C056"
-            />
-            <rect
-              x="5.17319"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#55C056"
-            />
-            <rect
-              x="9.43387"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#55C056"
-            />
-            <rect
-              x="13.6945"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#55C056"
-            />
-            <rect
-              x="17.9552"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#55C056"
-            />
-            <rect
-              x="22.2159"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#55C056"
-            />
-            <rect
-              x="26.4765"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#55C056"
-            />
-            <rect
-              x="30.7372"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#55C056"
-            />
-            <rect
-              x="34.9978"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#55C056"
-            />
-            <rect
-              x="39.2585"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#55C056"
-            />
-            <rect
-              x="43.5192"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#55C056"
-            />
-            <rect
-              x="47.7798"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#55C056"
-            />
-            <rect
-              x="52.0405"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#55C056"
-            />
-            <rect
-              x="56.3011"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#55C056"
-            />
-            <rect
-              x="60.5618"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#55C056"
-            />
-            <rect
-              x="64.8225"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#55C056"
-            />
-            <rect
-              x="69.0831"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#55C056"
-            />
-            <rect
-              x="73.3438"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#55C056"
-            />
-            <rect
-              x="77.6045"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#55C056"
-            />
-            <rect
-              x="81.8651"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#55C056"
-            />
-            <rect
-              x="86.1258"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#55C056"
-            />
-            <rect
-              x="90.3865"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#55C056"
-            />
-            <rect
-              x="94.6471"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#55C056"
-            />
-            <rect
-              x="98.9078"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#55C056"
-            />
-            <rect
-              x="103.168"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#55C056"
-            />
-            <rect
-              x="107.429"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#E0E0E0"
-            />
-            <rect
-              x="111.69"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#E0E0E0"
-            />
-            <rect
-              x="115.95"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#E0E0E0"
-            />
-            <rect
-              x="120.211"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#E0E0E0"
-            />
-            <rect
-              x="124.472"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#E0E0E0"
-            />
-            <rect
-              x="128.732"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#E0E0E0"
-            />
-            <rect
-              x="132.993"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#E0E0E0"
-            />
-            <rect
-              x="137.254"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#E0E0E0"
-            />
-            <rect
-              x="141.514"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#E0E0E0"
-            />
-            <rect
-              x="145.775"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#E0E0E0"
-            />
-            <rect
-              x="150.036"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#E0E0E0"
-            />
-            <rect
-              x="154.296"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#E0E0E0"
-            />
-            <rect
-              x="158.557"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#E0E0E0"
-            />
-            <rect
-              x="162.818"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#E0E0E0"
-            />
-            <rect
-              x="167.078"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#E0E0E0"
-            />
-            <rect
-              x="171.339"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#E0E0E0"
-            />
-            <rect
-              x="175.6"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#E0E0E0"
-            />
-            <rect
-              x="179.86"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#E0E0E0"
-            />
-            <rect
-              x="184.121"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#E0E0E0"
-            />
-            <rect
-              x="188.382"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#E0E0E0"
-            />
-            <rect
-              x="192.642"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#E0E0E0"
-            />
-            <rect
-              x="196.903"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#E0E0E0"
-            />
-            <rect
-              x="201.164"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#E0E0E0"
-            />
-            <rect
-              x="205.424"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#E0E0E0"
-            />
-            <rect
-              x="209.685"
-              y="0.748047"
-              width="1.42022"
-              height="15.6224"
-              rx="0.71011"
-              fill="#E0E0E0"
-            />
+            {Array.from({ length: 50 }).map((_, index) => (
+              <motion.rect
+                key={index}
+                x={0.912323 + index * 4.26066}
+                y="0.748047"
+                width="1.42022"
+                height="15.6224"
+                rx="0.71011"
+                fill={useTransform(filledBars, (latest) => 
+                  index < latest ? "#55C056" : "#E0E0E0"
+                )}
+              />
+            ))}
           </svg>
 
-          <p className="text-black text-[9.94px]">50%</p>
+          <motion.p className="text-black text-[9.94px]">
+            {useTransform(roundedPercentage, latest => `${latest}%`)}
+          </motion.p>
         </div>
       </div>
 
@@ -436,8 +101,38 @@ const EarnRewardsContent = () => {
         <Aicon />
 
         <div className="flex flex-row space-x-1 pr-4 items-center">
-          {isHovering ? <FireBlue /> : <FireGreen />}
-          <p className="text-black text-[15.78px] font-semibold">20</p>
+          <AnimatePresence mode="wait">
+            {isTwoThousand ? (
+              <motion.div
+                key="blue"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <FireBlue />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="green"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <FireGreen />
+              </motion.div>
+            )}
+          </AnimatePresence>
+          <motion.p
+            className="text-black text-[15.78px] font-semibold"
+            key={fireNumber}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {fireNumber}
+          </motion.p>
         </div>
       </div>
     </div>
@@ -445,3 +140,4 @@ const EarnRewardsContent = () => {
 };
 
 export default EarnRewardsContent;
+

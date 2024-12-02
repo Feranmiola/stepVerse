@@ -103,7 +103,7 @@ const HowItWorks: React.FC = () => {
             <motion.div 
               className="w-[387px] h-[360px] rounded-2xl bg-[#FBFAF9] flex items-center justify-center"              
             >
-              <EarnRewardsContent/>
+              <EarnRewardsContent isHovered={hoverIndex === 3} />
             </motion.div>
 
             <div className="flex flex-col w-[387px] h-[101px] justify-between">
