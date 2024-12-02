@@ -16,7 +16,7 @@ const IconsMobile = () => {
   };
 
   return (
-    <div className="w-full max-w-[99.99vw] flex justify-center">
+    <div className="w-full max-w-[100vw] flex justify-center">
       <svg
         width="100%"
         height="100%"

@@ -63,7 +63,7 @@ const Starter = () => {
         <RightIcons />
       </div>
 
-      <div className="flex flex-col md:hidden min-h-screen w-full items-center justify-center px-4 py-8">
+      <div className="flex flex-col md:hidden min-h-screen w-full items-center justify-center py-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
