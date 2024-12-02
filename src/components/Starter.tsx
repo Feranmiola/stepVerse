@@ -84,7 +84,7 @@ const Starter = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-[16px] w-full text-center text-[#4C4C4C]"
+            className="text-[16px] w-full text-center px-5 text-[#4C4C4C]"
           >
             StepVerse is the ultimate fitness gaming experience built on
             Telegram Mini App where we make staying active fun and rewarding.
