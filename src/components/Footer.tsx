@@ -7,9 +7,12 @@ import LinkedInIconSOlid from "@/Icons/LinkedInIconSOlid";
 import MailIcon from "@/Icons/MailIcon";
 import TelegramIconSolid from "@/Icons/TelegramIconSolid";
 import TwitterIcon from "@/Icons/TwitterIcon";
+import { useRouter } from "next-nprogress-bar";
 
 const Footer = () => {
   const ref = React.useRef(null);
+
+  const router = useRouter()
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   const containerVariants = {
@@ -110,7 +113,9 @@ const Footer = () => {
           <p className="text-black text-[13px]">
             (c) StepVerse 2024. All rights reserved.
           </p>
-          <motion.p className="text-black text-[13px] cursor-pointer" whileHover={{ color: "#55C056" }}>Privacy Policy</motion.p>
+          <motion.p className="text-black text-[13px] cursor-pointer" 
+          onClick={() => router.push('/privacypolicy')}
+          whileHover={{ color: "#55C056" }}>Privacy Policy</motion.p>
         </motion.div>
 
         <motion.div className="flex flex-row space-x-7 items-center" variants={itemVariants}>
