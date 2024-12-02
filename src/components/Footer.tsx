@@ -97,13 +97,14 @@ const Footer = () => {
                 <p className="text-[#4C4C4C] text-base">
                   For investment inquiries
                 </p>
-                <motion.div
+                <motion.a
+                  href="mailto:ir@step.com"
                   className="flex flex-row items-center space-x-1"
                   whileHover={{ scale: 1.05 }}
                 >
                   <MailIcon />
                   <p className="text-[#55C056] text-base">ir@step.com</p>
-                </motion.div>
+                </motion.a>
               </motion.div>
 
               <motion.div
@@ -113,13 +114,14 @@ const Footer = () => {
                 <p className="text-[#4C4C4C] text-base">
                   For community requests
                 </p>
-                <motion.div
+                <motion.a
+                  href="mailto:com@step.com"
                   className="flex flex-row items-center space-x-1"
                   whileHover={{ scale: 1.05 }}
                 >
                   <MailIcon />
                   <p className="text-[#55C056] text-base">com@step.com</p>
-                </motion.div>
+                </motion.a>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -172,21 +174,6 @@ const Footer = () => {
         </motion.div>
       </motion.div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       <motion.div
         ref={ref}
         className="w-full max-w-[95%] px-5 flex items-center justify-center flex-col md:hidden space-y-5 py-10"
@@ -220,13 +207,14 @@ const Footer = () => {
                 <p className="text-[#4C4C4C] text-base">
                   For investment inquiries
                 </p>
-                <motion.div
+                <motion.a
+                  href="mailto:ir@step.com"
                   className="flex flex-row items-center space-x-1"
                   whileHover={{ scale: 1.05 }}
                 >
                   <MailIcon />
                   <p className="text-[#55C056] text-base">ir@step.com</p>
-                </motion.div>
+                </motion.a>
               </motion.div>
 
               <motion.div
@@ -236,13 +224,14 @@ const Footer = () => {
                 <p className="text-[#4C4C4C] text-base">
                   For community requests
                 </p>
-                <motion.div
+                <motion.a
+                  href="mailto:com@step.com"
                   className="flex flex-row items-center space-x-1"
                   whileHover={{ scale: 1.05 }}
                 >
                   <MailIcon />
                   <p className="text-[#55C056] text-base">com@step.com</p>
-                </motion.div>
+                </motion.a>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -259,7 +248,7 @@ const Footer = () => {
         </motion.div>
 
         <motion.div
-          className="w-full flex flex-col space-y-5 "
+          className="w-full flex flex-col space-y-7 "
           variants={itemVariants}
         >
           <motion.div
@@ -276,7 +265,6 @@ const Footer = () => {
               <LinkedInIconSOlid />
             </motion.div>
           </motion.div>
-
 
           <motion.div
             className="flex flex-col space-y-3"
