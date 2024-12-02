@@ -21,7 +21,7 @@ export default function FAQPage() {
   };
 
   return (
-    <div className="w-screen flex items-center justify-center py-[7rem]">
+    <div className="w-screen flex items-center justify-center py-[9rem]">
       <div className="w-[794px] flex flex-col space-y-5">
         <p className="text-[#191918] text-[32px] font-medium font-inter">
           Frequently Asked Questions
