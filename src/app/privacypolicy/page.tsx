@@ -31,13 +31,14 @@ export default function PrivacyPolicy() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const id = Number(entry.target.id);
-            if (id < activeSection || activeSection === -1) {
-              setActiveSection(id);
-            }
+            setActiveSection(id);
           }
         });
       },
-      { threshold: 0.1, rootMargin: "-80px 0px 0px 0px" }
+      { 
+        threshold: 0.5,
+        rootMargin: `-${80}px 0px -50% 0px`
+      }
     );
 
     sectionRefs.current.forEach((ref) => {
@@ -47,19 +48,21 @@ export default function PrivacyPolicy() {
     });
 
     return () => observer.disconnect();
-  }, [activeSection]);
+  }, []);
 
   const scrollToSection = (index: number) => {
     const targetRef = sectionRefs.current[index];
     if (targetRef && targetRef.current) {
-      const yOffset = -80;
-      const y = targetRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      const navbarHeight = 80;
+      const scrollPadding = 20; // Add some padding to the scroll position
+      const y = targetRef.current.getBoundingClientRect().top + window.pageYOffset - navbarHeight - scrollPadding;
       window.scrollTo({ top: y, behavior: 'smooth' });
       setActiveSection(index);
     }
   };
 
   return (
+    
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -93,7 +96,7 @@ export default function PrivacyPolicy() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex flex-col space-y-2 w-full"
+              className="flex flex-col space-y-2 w-full "
             >
               <h2 className="text-[18px] text-[#191918] font-medium font-inter">
                 1. Data We Collect
@@ -126,7 +129,7 @@ export default function PrivacyPolicy() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex flex-col space-y-2 w-full"
+              className="flex flex-col space-y-2 w-full "
             >
               <h2 className="text-[18px] text-[#191918] font-medium font-inter">
                 2. How We Use Your Data
@@ -159,7 +162,7 @@ export default function PrivacyPolicy() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-col space-y-2 w-full"
+              className="flex flex-col space-y-2 w-full "
             >
               <h2 className="text-[18px] text-[#191918] font-medium font-inter">
                 3. Transparency in Data Usage
@@ -189,7 +192,7 @@ export default function PrivacyPolicy() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-col space-y-2 w-full"
+              className="flex flex-col space-y-2 w-full "
             >
               <h2 className="text-[18px] text-[#191918] font-medium font-inter">
                 4. User Rights and Control
@@ -222,7 +225,7 @@ export default function PrivacyPolicy() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex flex-col space-y-2 w-full"
+              className="flex flex-col space-y-2 w-full "
             >
               <h2 className="text-[18px] text-[#191918] font-medium font-inter">
                 5. Data Security Measures
@@ -255,7 +258,7 @@ export default function PrivacyPolicy() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="flex flex-col space-y-2 w-full"
+              className="flex flex-col space-y-2 w-full "
             >
               <h2 className="text-[18px] text-[#191918] font-medium font-inter">
                 6. Decentralized Ownership of Rewards
@@ -276,7 +279,7 @@ export default function PrivacyPolicy() {
               </ul>
               <p className="w-full text-[#4C4C4C] text-base leading-tight">
                 This decentralized approach ensures that your rewards are truly yours, aligning with our commitment to user empowerment and data ownership.
-              </p>
+                </p>
             </motion.div>
 
             <motion.div
@@ -285,7 +288,7 @@ export default function PrivacyPolicy() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.7 }}
-              className="flex flex-col space-y-2 w-full"
+              className="flex flex-col space-y-2 w-full "
             >
               <h2 className="text-[18px] text-[#191918] font-medium font-inter">
                 7. Compliance with Global Standards
@@ -315,7 +318,7 @@ export default function PrivacyPolicy() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.8 }}
-              className="flex flex-col space-y-2 w-full"
+              className="flex flex-col space-y-2 w-full "
             >
               <h2 className="text-[18px] text-[#191918] font-medium font-inter">
                 8. Fraud Prevention and Fairness
@@ -345,7 +348,7 @@ export default function PrivacyPolicy() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.9 }}
-              className="flex flex-col space-y-2 w-full"
+              className="flex flex-col space-y-2 w-full "
             >
               <h2 className="text-[18px] text-[#191918] font-medium font-inter">
                 9. Third-Party Integrations
@@ -375,7 +378,7 @@ export default function PrivacyPolicy() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 1.0 }}
-              className="flex flex-col space-y-2 w-full"
+              className="flex flex-col space-y-2 w-full "
             >
               <h2 className="text-[18px] text-[#191918] font-medium font-inter">
                 10. User Communication and Updates
@@ -405,7 +408,7 @@ export default function PrivacyPolicy() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 1.1 }}
-              className="flex flex-col space-y-2 w-full"
+              className="flex flex-col space-y-2 w-full "
             >
               <h2 className="text-[18px] text-[#191918] font-medium font-inter">
                 11. Children's Privacy
@@ -421,7 +424,7 @@ export default function PrivacyPolicy() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 1.2 }}
-              className="flex flex-col space-y-5 w-full"
+              className="flex flex-col space-y-5 w-full "
             >
               <h2 className="text-[18px] text-[#191918] font-medium font-inter">
                 12. Contact Us
