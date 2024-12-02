@@ -65,7 +65,7 @@ const Footer = () => {
   return (
     <motion.div
       ref={ref}
-      className="w-full flex items-center justify-center flex-col space-y-5 pb-10"
+      className="w-full flex items-center justify-center flex-col space-y-5 my-10"
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
