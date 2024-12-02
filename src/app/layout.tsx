@@ -20,9 +20,11 @@ export default function RootLayout({
     <html lang="en" className={`${GeistSans.className} ${inter.variable}`}>
       <body>
         <Providers>
-          <div className="flex flex-col">
+          <div className="flex flex-col min-h-screen">
             <Navbar />
-            {children}
+            <main className="flex-grow">
+              {children}
+            </main>
             <Footer />
           </div>
         </Providers>
