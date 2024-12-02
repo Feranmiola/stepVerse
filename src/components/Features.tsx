@@ -1,11 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import BlueCHeck from "../Icons/BlueCHeck";
 
 const Features = () => {
+  const containerRef = useRef(null);
+  const [visibleItems, setVisibleItems] = useState(1);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -22,17 +25,33 @@ const Features = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
+  const additionalItemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
+  const isInView = useInView(containerRef, { amount: 0.2, once: false });
+
+  useEffect(() => {
+    if (isInView && visibleItems < 4) {
+      const timer = setTimeout(() => {
+        setVisibleItems((prev) => Math.min(prev + 1, 4));
+      }, 800);
+      return () => clearTimeout(timer);
+    }
+  }, [isInView, visibleItems]);
+
   return (
     <motion.div
+      ref={containerRef}
       className="relative flex flex-row justify-center items-start space-x-[10rem] py-20 lg:min-h-screen"
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.1 }}
+      animate="visible"
       variants={containerVariants}
     >
       <motion.div
         id="leftText"
-        className="sticky top-20 flex flex-col space-y-4 h-[calc(100vh-40rem)]"
+        className="sticky top-[6.5rem] flex flex-col space-y-4 h-[calc(100vh-40rem)]"
         variants={containerVariants}
       >
         <motion.p
@@ -54,6 +73,42 @@ const Features = () => {
           <BlueCHeck />
           <p className="text-base text-[#424242]">Proven Health Benefits</p>
         </motion.div>
+
+        {visibleItems >= 2 && (
+          <motion.div
+            className="flex flex-row space-x-2 items-center"
+            variants={additionalItemVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <BlueCHeck colour={'#F63F00'} />
+            <p className="text-base text-[#424242]">Real Rewards</p>
+          </motion.div>
+        )}
+
+        {visibleItems >= 3 && (
+          <motion.div
+            className="flex flex-row space-x-2 items-center"
+            variants={additionalItemVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <BlueCHeck colour={'#55C056'} />
+            <p className="text-base text-[#424242]">Inclusive Platform</p>
+          </motion.div>
+        )}
+
+        {visibleItems >= 4 && (
+          <motion.div
+            className="flex flex-row space-x-2 items-center"
+            variants={additionalItemVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <BlueCHeck colour={"#E292E5"} />
+            <p className="text-base text-[#424242]">Data-Driven Progress</p>
+          </motion.div>
+        )}
       </motion.div>
 
       <motion.div
@@ -179,7 +234,7 @@ const Features = () => {
             </p>
             <p className="text-base text-[#4C4C4C]">
               Explore real-world locations and uncover hidden treasures. From
-              cash rewards to exclusive in-game perks, there’s always something
+              cash rewards to exclusive in-game perks, there's always something
               exciting waiting for you.
             </p>
           </div>
@@ -190,3 +245,4 @@ const Features = () => {
 };
 
 export default Features;
+

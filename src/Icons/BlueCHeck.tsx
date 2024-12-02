@@ -1,6 +1,6 @@
 import React from "react";
 
-const BlueCHeck = () => {
+const BlueCHeck = (props: any) => {
   return (
     <svg
       width="24"
@@ -11,7 +11,7 @@ const BlueCHeck = () => {
     >
       <path
         d="M15 9.5L10.5 15L8.5 13M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
-        stroke="#00B2FF"
+        stroke={props.colour || '#00B2FF'}
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
