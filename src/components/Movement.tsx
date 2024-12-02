@@ -3,8 +3,10 @@
 import Image from "next/image";
 import React from "react";
 import { motion, useInView } from "framer-motion";
+import { useMediaQuery } from "react-responsive";
 
 const Movement = () => {
+  const isDesktop = useMediaQuery({ minWidth: 768 });
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
@@ -62,6 +64,36 @@ const Movement = () => {
       },
     },
   };
+
+  if (!isDesktop) {
+    return (
+      <div className="w-full px-4 py-10 flex flex-col items-center justify-center space-y-6">
+        <div className="flex flex-col space-y-4">
+          <h2 className="text-[#191918] text-2xl font-medium text-left">
+            Be Part of the Movement
+          </h2>
+          <p className="text-left text-[#4C4C4C] text-sm">
+            Join a growing community of users committed to better health. 
+            Together, we can reduce sedentary behavior and build 
+            healthier, happier lives for millions around the globe.
+          </p>
+          <button className="w-full max-w-[172px] h-[46px] rounded-[45px] flex items-center justify-center cursor-pointer transition ease-in-out text-white font-medium text-base bg-[#191918] hover:bg-transparent hover:text-[#191918] border-transparent border hover:border-[#191918]">
+            Join Community
+          </button>
+        </div>
+
+        <div className="w-full flex items-center justify-center">
+          <Image
+            src="https://res.cloudinary.com/debiu7z1b/image/upload/v1733172629/Frame_579_m88sdr.webp"
+            alt="Movement Image"
+            width={377}
+            height={385}
+            className="w-full h-auto"
+          />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <motion.div
