@@ -3,9 +3,11 @@
 import React, { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useMediaQuery } from "react-responsive";
 import BlueCHeck from "../Icons/BlueCHeck";
 
 const Features = () => {
+  const isDesktop = useMediaQuery({ minWidth: 768 });
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -40,6 +42,32 @@ const Features = () => {
   ];
 
   const totalScrollLength = features.length;
+
+  if (!isDesktop) {
+    return (
+      <div className="flex flex-col px-4 py-8">
+        <p className="text-[#55C056] text-[15px] mb-4">Features</p>
+        <p className="text-[24px] font-medium leading-tight mb-8">
+          Turn your steps into fun challenges and real rewards.
+        </p>
+        {features.map((feature, index) => (
+          <div key={index} className="pb-8">
+            <div className="w-full mb-4">
+              <Image
+                src={feature.image}
+                alt={feature.title}
+                width={378}
+                height={280}
+                className="w-[378px] h-[280px] object-cover rounded-2xl"
+              />
+            </div>
+            <h2 className="text-[#191918] font-semibold text-[19px] mb-2">{feature.title}</h2>
+            <p className="text-base text-[#4C4C4C] mb-4">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div ref={containerRef} className="relative" style={{ height: `${totalScrollLength * 100}vh` }}>
