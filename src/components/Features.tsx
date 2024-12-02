@@ -82,7 +82,7 @@ const Features = () => {
                 <img
                   src={feature.mobileImage}
                   alt={feature.title}
-                  className="w-full max-w-[378px] h-[280px] object-cover rounded-2xl"
+                  className="w-full h-[280px] object-cover rounded-2xl"
                 />
               </div>
               <h2 className="text-[#191918] font-semibold text-[19px] mb-2">{feature.title}</h2>

@@ -16,28 +16,31 @@ const IconsMobile = () => {
   };
 
   return (
-    <svg
-      width="378"
-      height="243"
-      viewBox="0 0 378 243"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      {svgPaths.map((path, index) => (
-        <motion.path
-          key={index}
-          d={path.d}
-          fill={path.fill}
-          // @ts-ignore
-          fillRule={path.fillRule}
-          clipRule={path.clipRule}
-          variants={pathVariants}
-          initial="hidden"
-          animate="visible"
-          custom={index}
-        />
-      ))}
-    </svg>
+    <div className="w-full max-w-[99.99vw] flex justify-center">
+      <svg
+        width="100%"
+        height="100%"
+        viewBox="0 0 378 243"
+        preserveAspectRatio="xMidYMid meet"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {svgPaths.map((path, index) => (
+          <motion.path
+            key={index}
+            d={path.d}
+            fill={path.fill}
+            // @ts-ignore
+            fillRule={path.fillRule}
+            clipRule={path.clipRule}
+            variants={pathVariants}
+            initial="hidden"
+            animate="visible"
+            custom={index}
+          />
+        ))}
+      </svg>
+    </div>
   );
 };
 const svgPaths = [

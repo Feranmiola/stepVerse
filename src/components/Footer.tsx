@@ -189,7 +189,7 @@ const Footer = () => {
           animate={isInView ? "visible" : "hidden"}
         >
           <motion.div
-            className="w-full max-w-[95%] h-auto rounded-[24px] flex flex-col justify-between items-center bg-[#E2F2DF] py-10 px-5"
+            className="w-full max-w-[95%] h-auto rounded-[24px] flex flex-col justify-between items-center bg-[#E2F2DF] pt-10"
             variants={itemVariants}
           >
             <motion.div

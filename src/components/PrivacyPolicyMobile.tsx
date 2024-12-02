@@ -3,7 +3,7 @@ import FAQ from "@/components/FAQ";
 export default function PrivacyPolicyMobile() {
   return (
     <div className="pt-[8rem] pb-20 flex items-center justify-center flex-col md:hidden max-w-[95%]">
-      <div className="flex max-w-[378px] px-5">
+      <div className="flex w-full px-5">
         <div className="flex flex-col space-y-5 w-full">
             <div className="flex flex-col space-y-2">
                 <p className="w-[231px] leading-none text-[#191918] text-[32px] font-inter font-medium">Privacy Policy for StepVerse</p>
