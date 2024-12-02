@@ -76,7 +76,7 @@ const HowItWorks: React.FC = () => {
               className="w-[387px] h-[360px] rounded-2xl bg-[#FBFAF9] flex items-center justify-center"
             >
 
-              <FitnessJourneyContent/>
+              <FitnessJourneyContent isHovered={hoverIndex === 2}/>
             </motion.div>
 
             <div className="flex flex-col w-[387px] h-[101px] justify-between">
