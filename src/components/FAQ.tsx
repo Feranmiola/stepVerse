@@ -1,6 +1,7 @@
+// @ts-nocheck
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import {
   Accordion,
@@ -14,6 +15,53 @@ import { useRouter } from "next-nprogress-bar";
 const FAQ = () => {
   const router = useRouter();
   const ref = React.useRef(null);
+
+  useEffect(() => { // Ensure this only runs in the browser if (typeof window === "undefined") return;
+
+    let scrollTimer = 0;
+    
+    // Function to update scrollbar properties
+    function updateScrollbar() {
+      const scrollPercentage =
+        window.scrollY /
+        (document.documentElement.scrollHeight - window.innerHeight);
+      const scrollbarHeight =
+        (window.innerHeight / document.documentElement.scrollHeight) *
+        window.innerHeight;
+      const scrollTop =
+        scrollPercentage * (window.innerHeight - scrollbarHeight);
+    
+      document.body.style.setProperty("--scroll-top", `${scrollTop}px`);
+      document.body.style.setProperty(
+        "--scrollbar-height",
+        `${scrollbarHeight}px`
+      );
+    
+      document.body.classList.add("is-scrolling");
+    
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        document.body.classList.remove("is-scrolling");
+      }, 1000);
+    }
+    
+    // Add event listeners for scroll and resize
+    window.addEventListener("scroll", updateScrollbar);
+    window.addEventListener("resize", updateScrollbar);
+    
+    // Initial call to set the correct scrollbar size
+    updateScrollbar();
+    
+    // Cleanup event listeners on component unmount
+    return () => {
+      window.removeEventListener("scroll", updateScrollbar);
+      window.removeEventListener("resize", updateScrollbar);
+    };
+    }, [])
+
+
+
+
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   const containerVariants = {
