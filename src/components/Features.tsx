@@ -23,6 +23,7 @@ const Features = () => {
       title: "Fitness Meets Gaming",
       description: "Make every step count with gamified features like treasure hunts, team challenges, and step competitions. StepVerse isn't just a fitness app—it's a game that keeps you engaged and moving.",
       image: "https://res.cloudinary.com/debiu7z1b/image/upload/v1732983557/Frame_562_wyv5xm.webp",
+      mobileImage: 'https://res.cloudinary.com/debiu7z1b/image/upload/v1733177210/mFrame_562_gz9sqy.webp',
       color: "#55C056",
       leftContent: 'Proven Health Benefits',
       leftContentIcon: HealthBenefits
@@ -31,6 +32,7 @@ const Features = () => {
       title: "Family & Community",
       description: "Create a family or friend group to collectively track progress. Celebrate milestones, inspire each other, and build a healthier community together.",
       image: "https://res.cloudinary.com/debiu7z1b/image/upload/v1732983557/1Frame_562_gaomv8.webp",
+      mobileImage: 'https://res.cloudinary.com/debiu7z1b/image/upload/v1733177210/m2Frame_562_rfa2tx.webp',
       color: "#F63F00",
       leftContent: 'Real Rewards',
       leftContentIcon: RealRewardsIcon
@@ -39,6 +41,7 @@ const Features = () => {
       title: "Marketplace",
       description: "Use your SV Points to purchase tools, gear, or exclusive items in our in-app marketplace. Keep upgrading your experience to unlock more exciting rewards.",
       image: "https://res.cloudinary.com/debiu7z1b/image/upload/v1732983557/2Frame_562_nx9vcl.webp",
+      mobileImage: 'https://res.cloudinary.com/debiu7z1b/image/upload/v1733177211/m3Frame_562_hurnry.webp',
       color: "#55C056",
       leftContent: 'Inclusive Platform',
       leftContentIcon: InclusiveIcon
@@ -47,6 +50,7 @@ const Features = () => {
       title: "Leaderboard Challenges",
       description: "Stay motivated with global leaderboards. Track your rankings daily, weekly, and monthly. Compete with friends or become the ultimate StepVerse champion.",
       image: "https://res.cloudinary.com/debiu7z1b/image/upload/v1732983558/3Frame_562_zsmd7j.webp",
+      mobileImage: 'https://res.cloudinary.com/debiu7z1b/image/upload/v1733177211/m4Frame_562_mbl7tt.webp',
       color: "#E292E5",
       leftContent: 'Data-Driven Progress',
       leftContentIcon: DataDrivenProgressIcon
@@ -55,6 +59,7 @@ const Features = () => {
       title: "Treasure Hunts",
       description: "Explore real-world locations and uncover hidden treasures. From cash rewards to exclusive in-game perks, there's always something exciting waiting for you.",
       image: "https://res.cloudinary.com/debiu7z1b/image/upload/v1732983558/4Frame_562_mhbu0l.webp",
+      mobileImage: 'https://res.cloudinary.com/debiu7z1b/image/upload/v1733177211/m5Frame_562_nb2rhd.webp',
       color: "#E292E5",
       leftContent: '',
       leftContentIcon: null
@@ -75,7 +80,7 @@ const Features = () => {
             <div key={index} className="pb-8 flex flex-col items-start">
               <div className="w-full flex justify-center mb-4">
                 <img
-                  src={feature.image}
+                  src={feature.mobileImage}
                   alt={feature.title}
                   className="w-full max-w-[378px] h-[280px] object-cover rounded-2xl"
                 />
