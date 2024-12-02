@@ -45,26 +45,26 @@ const Features = () => {
 
   if (!isDesktop) {
     return (
-      <div className="flex flex-col px-4 py-8">
-        <p className="text-[#55C056] text-[15px] mb-4">Features</p>
-        <p className="text-[24px] font-medium leading-tight mb-8">
-          Turn your steps into fun challenges and real rewards.
-        </p>
-        {features.map((feature, index) => (
-          <div key={index} className="pb-8">
-            <div className="w-full mb-4">
-              <Image
-                src={feature.image}
-                alt={feature.title}
-                width={378}
-                height={280}
-                className="w-[378px] h-[280px] object-cover rounded-2xl"
-              />
+      <div className="flex flex-col items-center justify-center py-8 w-full">
+        <div className="w-full max-w-[95%] px-4">
+          <p className="text-[#55C056] text-[15px] mb-4">Features</p>
+          <p className="text-[24px] font-medium leading-tight mb-8">
+            Turn your steps into fun challenges and real rewards.
+          </p>
+          {features.map((feature, index) => (
+            <div key={index} className="pb-8 flex flex-col items-start">
+              <div className="w-full flex justify-center mb-4">
+                <img
+                  src={feature.image}
+                  alt={feature.title}
+                  className="w-full max-w-[378px] h-[280px] object-cover rounded-2xl"
+                />
+              </div>
+              <h2 className="text-[#191918] font-semibold text-[19px] mb-2">{feature.title}</h2>
+              <p className="text-base text-[#4C4C4C] mb-4">{feature.description}</p>
             </div>
-            <h2 className="text-[#191918] font-semibold text-[19px] mb-2">{feature.title}</h2>
-            <p className="text-base text-[#4C4C4C] mb-4">{feature.description}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     );
   }

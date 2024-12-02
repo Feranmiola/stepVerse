@@ -1,9 +1,12 @@
+'use client'
+import { useRouter } from "next-nprogress-bar";
 import React from "react";
 
 const Navbar = () => {
+  const router = useRouter()
   return (
     <>
-      <div className="w-full flex flex-row max-md:hidden items-center py-5 bg-white bg-opacity-80 backdrop-blur-md justify-center space-x-[20rem] z-[9999] fixed">
+      <div onClick={()=> router.push('/')} className="w-full flex flex-row max-md:hidden items-center py-5 bg-white bg-opacity-80 backdrop-blur-md justify-center space-x-[20rem] z-[9999] fixed">
         <p className="text-[#191918] text-[22.01px]">StepVerse</p>
 
         <div className="flex flex-row items-center space-x-10">
