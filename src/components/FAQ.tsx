@@ -127,51 +127,51 @@ const FAQ = () => {
         </motion.div>
         <div className="h-[396px]">
           <motion.div
-            className="w-[590px] h-[396px] flex flex-col justify-between"
+            className="w-[590px] min--[396px] flex flex-col justify-between"
             variants={accordionVariants}
           >
             <Accordion type="single" collapsible>
               <motion.div variants={itemVariants}>
                 <AccordionItem value="item-1">
-                  <AccordionTrigger>Is it accessible?</AccordionTrigger>
+                  <AccordionTrigger>What is StepVerse?</AccordionTrigger>
                   <AccordionContent>
-                    Yes. It adheres to the WAI-ARIA design pattern.
+                  StepVerse is a Web3-powered social fitness platform designed to transform the sedentary lifestyles of millions by gamifying physical activity. Leveraging blockchain technology and Telegram Mini Apps, StepVerse encourages users to adopt healthier routines, engage in friendly fitness challenges, and earn rewards for their active lifestyle.
                   </AccordionContent>
                 </AccordionItem>
               </motion.div>
 
               <motion.div variants={itemVariants}>
                 <AccordionItem value="item-2">
-                  <AccordionTrigger>Is it accessible?</AccordionTrigger>
+                  <AccordionTrigger>How does StepVerse differ from other fitness apps?</AccordionTrigger>
                   <AccordionContent>
-                    Yes. It adheres to the WAI-ARIA design pattern.
+                  StepVerse stands apart by combining social gamification, blockchain technology, and wearable integrations to create a seamless fitness experience. Unlike traditional fitness apps, StepVerse uses a decentralized approach, enabling users to earn rewards for their activities and participate in global fitness competitions. Furthermore, the integration of Web3 ensures transparent and secure transactions.
                   </AccordionContent>
                 </AccordionItem>
               </motion.div>
 
               <motion.div variants={itemVariants}>
                 <AccordionItem value="item-3">
-                  <AccordionTrigger>Is it accessible?</AccordionTrigger>
+                  <AccordionTrigger>Is StepVerse free to use?</AccordionTrigger>
                   <AccordionContent>
-                    Yes. It adheres to the WAI-ARIA design pattern.
+                  Yes, StepVerse is free to use for basic fitness tracking and participation in daily challenges. However, certain features, such as purchasing treasure-hunt tools or staking points for competitions, may require in-app purchases using the platform’s native token.
                   </AccordionContent>
                 </AccordionItem>
               </motion.div>
 
               <motion.div variants={itemVariants}>
                 <AccordionItem value="item-4">
-                  <AccordionTrigger>Is it accessible?</AccordionTrigger>
+                  <AccordionTrigger>What is the role of blockchain in StepVerse?</AccordionTrigger>
                   <AccordionContent>
-                    Yes. It adheres to the WAI-ARIA design pattern.
+                  Blockchain ensures data security, transparency, and decentralized ownership within the platform. StepVerse uses blockchain to tokenize rewards (SV Points), facilitate peer-to-peer transactions in the marketplace, and securely store user data. 
                   </AccordionContent>
                 </AccordionItem>
               </motion.div>
 
               <motion.div variants={itemVariants}>
                 <AccordionItem value="item-5">
-                  <AccordionTrigger>Is it accessible?</AccordionTrigger>
+                  <AccordionTrigger>How do I participate in competitions or treasure hunts?</AccordionTrigger>
                   <AccordionContent>
-                    Yes. It adheres to the WAI-ARIA design pattern.
+                  To join competitions, users can invite friends or join existing challenges. Users set targets, timelines, and stake points before the competition begins. For treasure hunts, users purchase tools (e.g., treasure bags, telescopes) to explore randomized geo-locations for rewards. Both activities are designed to make fitness fun and engaging.
                   </AccordionContent>
                 </AccordionItem>
               </motion.div>
