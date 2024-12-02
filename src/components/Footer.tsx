@@ -193,7 +193,7 @@ const Footer = () => {
             variants={itemVariants}
           >
             <motion.div
-              className="flex flex-col w-full space-y-6 justify-center items-center"
+              className="flex flex-col w-full space-y-6 px-5 justify-center items-center"
               variants={itemVariants}
             >
               <motion.p
