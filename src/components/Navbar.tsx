@@ -1,5 +1,6 @@
 'use client'
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter } from "next-nprogress-bar";
+import {  usePathname } from "next/navigation";
 import React, { useEffect } from "react";
 
 const Navbar = () => {
