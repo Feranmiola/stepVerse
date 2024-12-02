@@ -1,8 +1,8 @@
 import FAQ from "@/components/FAQ";
 
-export default function PrivacyPolicy() {
+export default function PrivacyPolicyMobile() {
   return (
-    <div className="pt-[8rem] pb-20 flex items-center justify-center flex-col">
+    <div className="pt-[8rem] pb-20 flex items-center justify-center flex-col md:hidden max-w-[95%] px-5">
       <div className="flex max-w-[378px] ">
         <div className="flex flex-col space-y-5 w-full">
             <div className="flex flex-col space-y-2">
