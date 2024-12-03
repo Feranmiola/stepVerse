@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import FAQ from "@/components/FAQ";
 import PrivacyPolicyMobile from "@/components/PrivacyPolicyMobile";
+import SEO from "@/components/SEO";
 
 type SectionRef = React.RefObject<HTMLDivElement>;
 
@@ -70,7 +71,15 @@ export default function PrivacyPolicy() {
 
   return (
     <>
-    <PrivacyPolicyMobile/>
+      <SEO
+        title="StepVerse | Privacy Policy"
+        description="Learn how StepVerse protects your data and privacy. Our comprehensive policy outlines data collection, usage, and your rights as a user of our fitness gaming platform."
+        canonical="https://step-verse.vercel.app/"
+        ogImage="https://res.cloudinary.com/debiu7z1b/image/upload/v1733222710/Frame_657_emx4vk.jpg"
+        ogType="website"
+        twitterHandle=""
+      />
+      <PrivacyPolicyMobile />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

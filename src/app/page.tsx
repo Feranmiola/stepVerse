@@ -1,6 +1,5 @@
-
-/* eslint-disable */ 
-// @ts-nocheck 
+/* eslint-disable */
+// @ts-nocheck
 "use client";
 
 import { useEffect, useState } from "react";
@@ -22,7 +21,7 @@ export default function Home() {
 
   useEffect(() => {
     // Check if the user has already made a choice
-    const cookieChoice = localStorage.getItem('cookieConsent');
+    const cookieChoice = localStorage.getItem("cookieConsent");
     if (cookieChoice === null) {
       setShowCookieConsent(true);
     }
@@ -76,6 +75,10 @@ export default function Home() {
       <SEO
         title="StepVerse"
         description="StepVerse is the ultimate fitness gaming experience built on Telegram Mini App where we make staying active fun and rewarding."
+        canonical="https://step-verse.vercel.app/"
+        ogImage="https://res.cloudinary.com/debiu7z1b/image/upload/v1733222710/Frame_657_emx4vk.jpg"
+        ogType="website"
+        twitterHandle=""
       />
       <Starter />
       <div id="how-it-works" className="w-full">
@@ -90,8 +93,9 @@ export default function Home() {
       <div id="faqs" className="w-full">
         <FAQ />
       </div>
-      {showCookieConsent && <CookieConsent setShowCookieConsent={setShowCookieConsent} />}
+      {showCookieConsent && (
+        <CookieConsent setShowCookieConsent={setShowCookieConsent} />
+      )}
     </div>
   );
 }
-
