@@ -1,8 +1,9 @@
-/* eslint-disable */
-// @ts-nocheck
+
+/* eslint-disable */ 
+// @ts-nocheck 
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Movement from "@/components/Movement";
 import Features from "../components/Features";
@@ -14,10 +15,20 @@ import TwitterIcon from "../Icons/TwitterIcon";
 import FAQ from "@/components/FAQ";
 import Starter from "@/components/Starter";
 import SEO from "@/components/SEO";
+import CookieConsent from "@/components/CookieConsent";
 
 export default function Home() {
+  const [showCookieConsent, setShowCookieConsent] = useState(false);
+
   useEffect(() => {
-    // Ensure this only runs in the browser if (typeof window === "undefined") return;
+    // Check if the user has already made a choice
+    const cookieChoice = localStorage.getItem('cookieConsent');
+    if (cookieChoice === null) {
+      setShowCookieConsent(true);
+    }
+
+    // Ensure this only runs in the browser
+    if (typeof window === "undefined") return;
 
     let scrollTimer = 0;
 
@@ -61,10 +72,10 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-white w-screen flex flex-col">
+    <div className="bg-white w-screen min-h-screen relative flex flex-col">
       <SEO
-      title="StepVerse"
-      description="StepVerse is the ultimate fitness gaming experience built on Telegram Mini App where we make staying active fun and rewarding."
+        title="StepVerse"
+        description="StepVerse is the ultimate fitness gaming experience built on Telegram Mini App where we make staying active fun and rewarding."
       />
       <Starter />
       <div id="how-it-works" className="w-full">
@@ -79,6 +90,8 @@ export default function Home() {
       <div id="faqs" className="w-full">
         <FAQ />
       </div>
+      {showCookieConsent && <CookieConsent setShowCookieConsent={setShowCookieConsent} />}
     </div>
   );
 }
+
