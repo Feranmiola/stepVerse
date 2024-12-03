@@ -89,7 +89,7 @@ const Navbar = () => {
           className="w-[173px] h-[48px] rounded-[41.77px] bg-[#191918] cursor-pointer border-[1px] border-transparent hover:border-white transition ease-in-out flex items-center justify-center space-x-1"
           onClick={() => window.open('https://t.me/StepVerseApp', '_blank')}
         >
-          <p className="text-white text-[14px]">Launch on Telegram</p>
+          <p className="text-white text-[14px]">Download Whitepaper</p>
         </div>
       </div>
 
@@ -105,7 +105,7 @@ const Navbar = () => {
           className="w-[199px] h-[44px] rounded-[41.77px] bg-[#191918] cursor-pointer border-[1px] border-transparent hover:border-white transition ease-in-out flex items-center justify-center space-x-1"
           onClick={() => window.open('https://t.me/StepVerseApp', '_blank')}
         >
-          <p className="text-white text-[14px]">Launch on Telegram</p>
+          <p className="text-white text-[14px]">Download Whitepaper</p>
         </div>
       </div>
     </>
