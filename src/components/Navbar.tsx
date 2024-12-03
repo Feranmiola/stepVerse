@@ -1,4 +1,6 @@
 'use client'
+import StepVerseIcon from "@/Icons/StepVerseIcon";
+import StepVerseIconMobile from "@/Icons/StepVerseIconMobile";
 import { useRouter } from "next-nprogress-bar";
 import {  usePathname } from "next/navigation";
 import React, { useEffect } from "react";
@@ -49,12 +51,12 @@ const Navbar = () => {
   return (
     <>
       <div className="w-full flex flex-row max-md:hidden items-center py-5 bg-white bg-opacity-80 backdrop-blur-md justify-center space-x-[20rem] z-[9999] fixed">
-        <p 
-          className="text-[#191918] text-[22.01px] cursor-pointer"
+        <div
+          className=" cursor-pointer"
           onClick={() => router.push('/')}
         >
-          StepVerse
-        </p>
+          <StepVerseIcon/>
+        </div>
 
         <div className="flex flex-row items-center space-x-10">
           <p 
@@ -92,12 +94,12 @@ const Navbar = () => {
       </div>
 
       <div className="w-full flex flex-row md:hidden items-center py-5 bg-white justify-between px-5 bg-opacity-80 backdrop-blur-md z-[9999] fixed">
-        <p 
-          className="text-[#191918] text-[20.9px] font-bold leading-none cursor-pointer"
+        <div
+          className="cursor-pointer"
           onClick={() => router.push('/')}
         >
-          Step<br/>Verse
-        </p>
+          <StepVerseIconMobile/>
+        </div>
 
         <div 
           className="w-[199px] h-[44px] rounded-[41.77px] bg-[#191918] cursor-pointer border-[1px] border-transparent hover:border-white transition ease-in-out flex items-center justify-center space-x-1"
