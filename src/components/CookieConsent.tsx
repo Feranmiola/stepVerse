@@ -29,30 +29,6 @@ export default function CookieConsent({
     setIsSheetOpen(false);
   };
 
-  const CookieContent = () => (
-    <>
-      <CookiesIcon />
-      <p className="text-[#4C4C4C] text-[17px] w-[362px] leading-none">
-        We use cookies to personalize your site experience and analyze the site
-        traffic.
-      </p>
-      <div className="flex flex-row space-x-3 items-center">
-        <button
-          onClick={() => handleChoice("decline")}
-          className="w-[119px] h-[55px] border-[1px] border-transparent hover:border-black transition ease-in-out flex items-center justify-center font-inter bg-[#F1F1F1] rounded-2xl text-[17px] text-black cursor-pointer"
-        >
-          Decline
-        </button>
-        <button
-          onClick={() => handleChoice("accept")}
-          className="w-[119px] h-[55px] border-[1px] border-transparent hover:border-black transition ease-in-out flex items-center font-medium font-inter justify-center bg-[#F7F7F7] rounded-2xl text-[17px] text-black cursor-pointer"
-        >
-          Accept
-        </button>
-      </div>
-    </>
-  );
-
   if (isMobile) {
     return (
       <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
@@ -89,7 +65,27 @@ export default function CookieConsent({
   return (
     <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 mb-4 z-50">
       <div className="flex bg-white w-[1012px] h-[95px] flex-row items-center justify-between px-5 rounded-2xl shadow-lg">
-        <CookieContent />
+        <div className="flex flex-row space-x-3 items-center">
+          <CookiesIcon />
+          <p className="text-[#4C4C4C] text-[17px] w-[362px] leading-none">
+            We use cookies to personalize your site experience and analyze the
+            site traffic.
+          </p>
+        </div>
+        <div className="flex flex-row space-x-3 items-center">
+          <button
+            onClick={() => handleChoice("decline")}
+            className="w-[119px] h-[55px] border-[1px] border-transparent hover:border-black transition ease-in-out flex items-center justify-center font-inter bg-[#F1F1F1] rounded-2xl text-[17px] text-black cursor-pointer"
+          >
+            Decline
+          </button>
+          <button
+            onClick={() => handleChoice("accept")}
+            className="w-[119px] h-[55px] border-[1px] border-transparent hover:border-black transition ease-in-out flex items-center font-medium font-inter justify-center bg-[#F7F7F7] rounded-2xl text-[17px] text-black cursor-pointer"
+          >
+            Accept
+          </button>
+        </div>
       </div>
     </div>
   );
