@@ -38,7 +38,7 @@ export default function CookieConsent({
         >
           <div className="w-full flex flex-col space-y-5 h-full">
             <CookiesIcon />
-            <p className="text-[#4C4C4C] text-[17px] w-[362px] leading-none">
+            <p className="text-[#4C4C4C] font-medium font-inter text-[17px] w-[362px] leading-none">
               We use cookies to personalize your site experience and analyze the
               site traffic.
             </p>
@@ -67,7 +67,7 @@ export default function CookieConsent({
       <div className="flex bg-white w-[1012px] h-[95px] flex-row items-center justify-between px-5 rounded-2xl shadow-lg">
         <div className="flex flex-row space-x-3 items-center">
           <CookiesIcon />
-          <p className="text-[#4C4C4C] text-[17px] w-[362px] leading-none">
+          <p className="text-[#4C4C4C] font-medium font-inter text-[17px] w-[362px] leading-none">
             We use cookies to personalize your site experience and analyze the
             site traffic.
           </p>
@@ -75,7 +75,7 @@ export default function CookieConsent({
         <div className="flex flex-row space-x-3 items-center">
           <button
             onClick={() => handleChoice("decline")}
-            className="w-[119px] h-[55px] border-[1px] border-transparent hover:border-black transition ease-in-out flex items-center justify-center font-inter bg-[#F1F1F1] rounded-2xl text-[17px] text-black cursor-pointer"
+            className="w-[119px] h-[55px] border-[1px] border-transparent hover:border-black transition ease-in-out flex items-center font-normal justify-center font-inter bg-white rounded-2xl text-[17px] text-black cursor-pointer"
           >
             Decline
           </button>
