@@ -3,17 +3,11 @@ import StepVerseIcon from "@/Icons/StepVerseIcon";
 import StepVerseIconMobile from "@/Icons/StepVerseIconMobile";
 import { useRouter } from "next-nprogress-bar";
 import { usePathname } from "next/navigation";
-import React, { useEffect, useState } from "react";
-
-import { ToastAction } from "@/components/ui/toast";
-import { useToast } from "@/hooks/use-toast";
+import React, { useEffect } from "react";
 
 const Navbar = () => {
   const router = useRouter();
   const pathname = usePathname();
-  const { toast } = useToast();
-  const [isDownloading, setIsDownloading] = useState(false);
-
 
   const scrollToSection = (sectionId: string) => {
     const isHomePage = pathname === '/';
@@ -54,67 +48,15 @@ const Navbar = () => {
     }
   }, [pathname]);
 
-  const downloadWhitepaper = async () => {
-    if (isDownloading) return;
-    setIsDownloading(true);
-
-    try {
-      const response = await fetch('/api/download-whitepaper', {
-        method: 'GET',
-        headers: {
-          'Accept': 'application/pdf',
-        },
-      });
-
-      if (response.ok) {
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.style.display = 'none';
-        a.href = url;
-        a.download = 'Whitepaper V1.0.pdf';
-        document.body.appendChild(a);
-        a.click();
-        window.URL.revokeObjectURL(url);
-        document.body.removeChild(a);
-        
-        toast({
-          title: "Whitepaper Downloaded",
-          description: "The whitepaper has been successfully downloaded.",
-          action: <ToastAction altText="View whitepaper">View</ToastAction>,
-        });
-      } else {
-        console.error('Failed to download whitepaper:', response.status, response.statusText);
-        toast({
-          variant: "destructive",
-          title: "Download Failed",
-          description: `There was an error downloading the whitepaper. Status: ${response.status}`,
-        });
-      }
-    } catch (error) {
-      console.error('Error downloading whitepaper:', error);
-      // if (error.name === 'TypeError' && error.message === 'Failed to fetch') {
-      //   toast({
-      //     variant: "destructive",
-      //     title: "Download Blocked",
-      //     description: "The download was blocked. Please disable any ad blockers or security extensions and try again.",
-      //   });
-      // } else {
-      //   toast({
-      //     variant: "destructive",
-      //     title: "Download Error",
-      //     description: `An unexpected error occurred: ${error.message}. Please try again later.`,
-      //   });
-      // }
-    } finally {
-      setIsDownloading(false);
-    }
+  const viewWhitepaper = () => {
+    window.open('/Whitepaper V1.0.pdf', '_blank');
   };
+
   return (
     <>
       <div className="w-full flex flex-row max-md:hidden items-center py-5 bg-white bg-opacity-80 backdrop-blur-md justify-center space-x-[20rem] z-[9999] fixed">
         <div
-          className=" cursor-pointer"
+          className="cursor-pointer"
           onClick={() => router.push('/')}
         >
           <StepVerseIcon/>
@@ -149,9 +91,9 @@ const Navbar = () => {
 
         <div 
           className="w-[173px] h-[48px] rounded-[41.77px] bg-[#191918] cursor-pointer border-[1px] border-transparent hover:border-white transition ease-in-out flex items-center justify-center space-x-1"
-          onClick={downloadWhitepaper}
+          onClick={viewWhitepaper}
         >
-          <p className="text-white text-[14px]">Download Whitepaper</p>
+          <p className="text-white text-[14px]">View Whitepaper</p>
         </div>
       </div>
 
@@ -165,9 +107,9 @@ const Navbar = () => {
 
         <div 
           className="w-[199px] h-[44px] rounded-[41.77px] bg-[#191918] cursor-pointer border-[1px] border-transparent hover:border-white transition ease-in-out flex items-center justify-center space-x-1"
-          onClick={downloadWhitepaper}
+          onClick={viewWhitepaper}
         >
-          <p className="text-white text-[14px]">Download Whitepaper</p>
+          <p className="text-white text-[14px]">View Whitepaper</p>
         </div>
       </div>
     </>
