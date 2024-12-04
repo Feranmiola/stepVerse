@@ -100,7 +100,7 @@ const HowItWorks: React.FC = () => {
                 className="h-[486px] w-full flex flex-col justify-between"
               >
                 <motion.div 
-                  className={`w-[387px] h-[360px] rounded-2xl flex items-center justify-center bg-[#FBFAF9]`}
+                  className={`w-[377px] h-[360px] rounded-2xl flex items-center justify-center bg-[#FBFAF9]`}
                 >
                   <AnimatePresence>
                     {index === 0 && (
