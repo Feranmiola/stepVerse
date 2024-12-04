@@ -75,7 +75,7 @@ export default function Home() {
       <SEO
         title="StepVerse"
         description="StepVerse is the ultimate fitness gaming experience built on Telegram Mini App where we make staying active fun and rewarding."
-        canonical="https://step-verse.vercel.app/"
+        canonical="https://stepverse.app"
         ogImage="https://res.cloudinary.com/debiu7z1b/image/upload/v1733222710/Frame_657_emx4vk.jpg"
         ogType="website"
         twitterHandle=""

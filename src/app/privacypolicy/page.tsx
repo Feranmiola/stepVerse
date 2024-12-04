@@ -74,7 +74,7 @@ export default function PrivacyPolicy() {
       <SEO
         title="StepVerse | Privacy Policy"
         description="Learn how StepVerse protects your data and privacy. Our comprehensive policy outlines data collection, usage, and your rights as a user of our fitness gaming platform."
-        canonical="https://step-verse.vercel.app/"
+        canonical="https://stepverse.app"
         ogImage="https://res.cloudinary.com/debiu7z1b/image/upload/v1733222710/Frame_657_emx4vk.jpg"
         ogType="website"
         twitterHandle=""
