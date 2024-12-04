@@ -2,6 +2,7 @@
 'use client'
 
 
+import { Toaster } from '@/components/ui/toaster';
 import { AppProgressBar as ProgressBar } from 'next-nprogress-bar';
 
 
@@ -18,6 +19,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
                 options={{ showSpinner: false }}
                 shallowRouting
             />
+            <Toaster/>
             {children}
         </>
     )
