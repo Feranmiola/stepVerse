@@ -8,7 +8,7 @@ import MailIcon from "@/Icons/MailIcon";
 import TelegramIconSolid from "@/Icons/TelegramIconSolid";
 import TwitterIcon from "@/Icons/TwitterIcon";
 import { useRouter } from "next-nprogress-bar";
-import { useMediaQuery } from 'react-responsive';
+import { useMediaQuery } from "react-responsive";
 
 const Footer = () => {
   const ref = React.useRef(null);
@@ -166,15 +166,25 @@ const Footer = () => {
               className="flex flex-row space-x-7 items-center"
               variants={itemVariants}
             >
-              <motion.div variants={iconVariants} whileHover={{ scale: 1.2 }}>
+              <motion.a
+                href="https://x.com/stepverse"
+                target="blank"
+                variants={iconVariants}
+                whileHover={{ scale: 1.2 }}
+              >
                 <TwitterIcon />
-              </motion.div>
-              <motion.div variants={iconVariants} whileHover={{ scale: 1.2 }}>
+              </motion.a>
+              <motion.a
+                href="https://t.me/stepverse"
+                target="blank"
+                variants={iconVariants}
+                whileHover={{ scale: 1.2 }}
+              >
                 <TelegramIconSolid />
-              </motion.div>
-              <motion.div variants={iconVariants} whileHover={{ scale: 1.2 }}>
+              </motion.a>
+              <motion.a variants={iconVariants} whileHover={{ scale: 1.2 }}>
                 <LinkedInIconSOlid />
-              </motion.div>
+              </motion.a>
             </motion.div>
           </motion.div>
         </motion.div>
@@ -263,15 +273,25 @@ const Footer = () => {
               className="flex flex-row space-x-7 items-center justify-center"
               variants={itemVariants}
             >
-              <motion.div variants={iconVariants} whileHover={{ scale: 1.2 }}>
+              <motion.a
+                href="https://x.com/stepverse"
+                target="blank"
+                variants={iconVariants}
+                whileHover={{ scale: 1.2 }}
+              >
                 <TwitterIcon />
-              </motion.div>
-              <motion.div variants={iconVariants} whileHover={{ scale: 1.2 }}>
+              </motion.a>
+              <motion.a
+                href="https://t.me/stepverse"
+                target="blank"
+                variants={iconVariants}
+                whileHover={{ scale: 1.2 }}
+              >
                 <TelegramIconSolid />
-              </motion.div>
-              <motion.div variants={iconVariants} whileHover={{ scale: 1.2 }}>
+              </motion.a>
+              <motion.a variants={iconVariants} whileHover={{ scale: 1.2 }}>
                 <LinkedInIconSOlid />
-              </motion.div>
+              </motion.a>
             </motion.div>
 
             <motion.div
@@ -299,4 +319,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

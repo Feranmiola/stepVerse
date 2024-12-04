@@ -42,22 +42,26 @@ const Starter = () => {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="flex flex-row items-center space-x-5"
           >
-            <motion.div
+            <motion.a
+            href="https://t.me/stepverse"
+            target="blank"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="w-[188.35px] h-[48px] rounded-[41.77px] bg-[#191918] cursor-pointer border-[1px] border-transparent hover:border-white transition ease-in-out flex items-center justify-center space-x-1"
             >
               <TelegramIcon />
               <p className="text-white text-[16.71px]">Join on Telegram</p>
-            </motion.div>
-            <motion.div
+            </motion.a>
+            <motion.a
+            href="https://x.com/stepverse"
+            target="blank"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="w-[188.35px] h-[48px] rounded-[41.77px] bg-[#FBFAF9] cursor-pointer border-[1px] border-transparent hover:border-black transition ease-in-out flex items-center justify-center space-x-1"
             >
               <TwitterIcon />
               <p className="text-[#080808] text-[16.71px]">Follow on twitter</p>
-            </motion.div>
+            </motion.a>
           </motion.div>
         </motion.div>
         <RightIcons />
@@ -96,22 +100,26 @@ const Starter = () => {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="flex flex-col items-center space-y-3 w-full"
           >
-            <motion.div
+            <motion.a
+            href="https://t.me/stepverse"
+            target="blank"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="w-full max-w-[266px] h-[48px] rounded-[41.77px] bg-[#191918] cursor-pointer border-[1px] border-transparent hover:border-white transition ease-in-out flex items-center justify-center space-x-1"
             >
               <TelegramIcon />
               <p className="text-white text-[16.71px]">Join on Telegram</p>
-            </motion.div>
-            <motion.div
+            </motion.a>
+            <motion.a
+            href="https://x.com/stepverse"
+            target="blank"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="w-full max-w-[266px] h-[48px] rounded-[41.77px] bg-[#FBFAF9] cursor-pointer border-[1px] border-transparent hover:border-black transition ease-in-out flex items-center justify-center space-x-1"
             >
               <TwitterIcon />
               <p className="text-[#080808] text-[16.71px]">Follow on twitter</p>
-            </motion.div>
+            </motion.a>
           </motion.div>
         </motion.div>
       </div>

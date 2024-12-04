@@ -77,9 +77,10 @@ const Movement = () => {
             Together, we can reduce sedentary behavior and build 
             healthier, happier lives for millions around the globe.
           </p>
-          <button className="w-full max-w-[172px] h-[46px] rounded-[45px] flex items-center justify-center cursor-pointer transition ease-in-out text-white font-medium text-base bg-[#191918] hover:bg-transparent hover:text-[#191918] border-transparent border hover:border-[#191918]">
+          <a href="https://t.me/stepverse"
+            target="blank" className="w-full max-w-[172px] h-[46px] rounded-[45px] flex items-center justify-center cursor-pointer transition ease-in-out text-white font-medium text-base bg-[#191918] hover:bg-transparent hover:text-[#191918] border-transparent border hover:border-[#191918]">
             Join Community
-          </button>
+          </a>
         </div>
 
         <div className="w-full flex items-center justify-center">
@@ -121,14 +122,16 @@ const Movement = () => {
           </motion.p>{" "}
         </div>
 
-        <motion.div
-          className="w-[172px] h-[46px] rounded-[45px] flex items-center justify-center cursor-pointer transition ease-in-out text-white font-medium text-base hover:text-[#191918] bg-[#191918] hover:bg-transparent border-transparent border-[1px] hover:border-[#191918]"
+        <motion.a
+        href="https://t.me/stepverse"
+            target="blank"
+          className="w-[172px] h-[46px] z-50 rounded-[45px] flex items-center justify-center cursor-pointer transition ease-in-out text-white font-medium text-base hover:text-[#191918] bg-[#191918] hover:bg-transparent border-transparent border-[1px] hover:border-[#191918]"
           variants={buttonVariants}
           whileHover="hover"
           whileTap="tap"
         >
           Join Community
-        </motion.div>
+        </motion.a>
       </motion.div>
 
       <motion.div
