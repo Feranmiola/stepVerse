@@ -63,7 +63,7 @@ const HowItWorks: React.FC = () => {
       <motion.div 
         initial="initial"
         animate="animate"
-        className="w-full flex py-20 items-center max-md:hidden justify-center"
+        className="w-full flex py-20 -mt-[12rem] items-center max-md:hidden justify-center"
       >
         <div className="w-[1200px] flex flex-col space-y-10">
           <motion.div 
@@ -72,7 +72,7 @@ const HowItWorks: React.FC = () => {
             transition={{ duration: 0.5 }}
           >
             <motion.p 
-              className="text-[#55C056] text-[15px]"
+              className="text-[#007CFF] text-[15px]"
               variants={contentVariants}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
@@ -161,7 +161,7 @@ const HowItWorks: React.FC = () => {
             transition={{ duration: 0.5 }}
           >
             <motion.p 
-              className="text-[#55C056] text-[15px]"
+              className="text-[#007CFF] text-[15px]"
               variants={contentVariants}
               transition={{ delay: 0.2, duration: 0.5 }}
             >

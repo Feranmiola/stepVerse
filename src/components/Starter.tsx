@@ -10,7 +10,7 @@ import StarterPhone from "@/Icons/StarterPhone";
 const Starter = () => {
   return (
     <>
-      <div className="flex relative flex-row max-md:hidden w-full pt-[10rem] -mb-[12rem] items-center justify-center">
+      <div className="flex relative flex-row max-md:hidden w-full pt-[10rem] items-center justify-center">
       <div className="absolute left-0 top-1/2 -translate-y-1/2">
       <LeftIcons />
     </div>

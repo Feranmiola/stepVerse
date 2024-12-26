@@ -11,7 +11,7 @@ const ForwardIcon = () => {
     >
       <path
         d="M13.625 5L20.625 12L13.625 19M3.375 12L20 12"
-        stroke="#55C056"
+        stroke="#007CFF"
         stroke-width="1.5"
       />
     </svg>

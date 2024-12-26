@@ -77,7 +77,7 @@ const Footer = () => {
           animate={isInView ? "visible" : "hidden"}
         >
           <motion.div
-            className="w-full max-w-[1333px] h-auto min-h-[403px] rounded-[24px] flex flex-row justify-between items-center bg-[#E2F2DF] px-4"
+            className="w-full max-w-[1333px] h-auto min-h-[403px] rounded-[24px] flex flex-row justify-between items-center bg-[#DFF5FF] px-4"
             variants={itemVariants}
           >
             <motion.div
@@ -199,7 +199,7 @@ const Footer = () => {
           animate={isInView ? "visible" : "hidden"}
         >
           <motion.div
-            className="w-full max-w-[95%] h-auto rounded-[24px] flex flex-col justify-between items-center bg-[#E2F2DF] pt-10"
+            className="w-full max-w-[95%] h-auto rounded-[24px] flex flex-col justify-between items-center bg-[#DFF5FF] pt-10"
             variants={itemVariants}
           >
             <motion.div

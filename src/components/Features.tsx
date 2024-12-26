@@ -72,7 +72,7 @@ const Features = () => {
     return (
       <div className="flex flex-col items-center justify-center py-8 w-full">
         <div className="w-full max-w-[95%] px-4">
-          <p className="text-[#55C056] text-[15px] mb-4">Features</p>
+          <p className="text-[#007CFF] text-[15px] mb-4">Features</p>
           <p className="text-[24px] font-medium leading-tight mb-8">
             Turn your steps into fun challenges and real rewards.
           </p>
@@ -99,8 +99,8 @@ const Features = () => {
       <div className="sticky top-0 left-0 w-full h-screen flex items-center justify-center overflow-hidden">
         <div className="flex w-full max-w-7xl px-4 h-full">
           <motion.div className="w-1/2 pr-8 flex flex-col justify-center">
-            <motion.p className="text-[#55C056] text-[15px] mb-4">Features</motion.p>
-            <motion.p className="text-[32px] font-medium leading-none mb-8">
+            <motion.p className="text-[#007CFF] text-[15px] mb-4">Features</motion.p>
+            <motion.p className="text-[32px] font-medium max-w-[414px] leading-none mb-8">
               Turn your steps into fun challenges and real rewards.
             </motion.p>
             {features.map((feature, index) => {

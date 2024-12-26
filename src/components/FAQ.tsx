@@ -88,7 +88,7 @@ const FAQ = () => {
           variants={itemVariants}
         >
           <motion.p
-            className="text-[15px] text-[#55C056] mb-2"
+            className="text-[15px] text-[#007CFF] mb-2"
             variants={itemVariants}
           >
             Got questions?
@@ -125,7 +125,7 @@ const FAQ = () => {
             transition={{ duration: 0.2 }}
             onClick={() => router.push("/faq")}
           >
-            <p className="text-[#55C056] text-[18px]">See more</p>
+            <p className="text-[#007CFF] text-[18px]">See more</p>
             <ForwardIcon />
           </motion.div>
         </motion.div>
