@@ -99,7 +99,7 @@ const Movement = () => {
   return (
     <motion.div
       ref={ref}
-      className="w-full pt-20 flex flex-col items-center justify-center -space-y-14"
+      className="w-full pt-20 flex flex-col items-center justify-center -space-y-[8rem]"
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
@@ -139,7 +139,8 @@ const Movement = () => {
         variants={imageVariants}
       >
         <Image
-          src="https://res.cloudinary.com/debiu7z1b/image/upload/v1732981477/Frame_651_byhmpy.webp"
+          // src="https://res.cloudinary.com/debiu7z1b/image/upload/v1732981477/Frame_651_byhmpy.webp"
+          src="https://res.cloudinary.com/debiu7z1b/image/upload/v1735225053/Frame_1618869060_abtpr2.webp"
           alt="Movement Image"
           width={1200}
           height={550}
