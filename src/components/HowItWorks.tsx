@@ -147,7 +147,7 @@ const HowItWorks: React.FC = () => {
                     {index === 1 && "Gamify Your Fitness Journey"}
                     {index === 2 && "Earn Rewards"}
                   </p>
-                  <p className="text-[16px] w-full text-[#4C4C4C]">
+                  <p className="text-[16px] w-full lg:max-w-[347px] text-[#4C4C4C]">
                     {index === 0 && "Join StepVerse through Telegram using your email, WhatsApp, or Telegram account. You're ready to play in minutes!"}
                     {index === 1 && "Engage in friendly competitions, treasure hunts, and leaderboard rankings to make fitness a fun, interactive, and rewarding experience."}
                     {index === 2 && "Turn your steps into SV Points, which can be used to unlock premium features, tools, and other exciting rewards in our marketplace."}
