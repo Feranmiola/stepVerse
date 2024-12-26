@@ -4,6 +4,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedCounterProgress } from "./AnimatedCounterProgress";
 import EarnRewardsContent from "./EarnRewardsContent";
 import FitnessJourneyContent from "./FitnexxJourneyContent";
+import SideOne from "@/Icons/SideOne";
+import SideTwo from "@/Icons/SideTwo";
+import SideThree from "@/Icons/SideThree";
 
 const HowItWorks: React.FC = () => {
   const [hoverStates, setHoverStates] = useState([false, false, false]);
@@ -110,20 +113,27 @@ const HowItWorks: React.FC = () => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="w-[295px] h-[203.1px] flex flex-col justify-evenly rounded-[12.36px] bg-white"
+                        // className="w-[295px] h-[203.1px] flex flex-col justify-evenly rounded-[12.36px] bg-white"
                       >
-                        <p className="text-black text-[10.81px] px-3">Step Counter</p>
+                        {/* <p className="text-black text-[10.81px] px-3">Step Counter</p> */}
                         <div className="flex items-center justify-center">
-                          <AnimatedCounterProgress isHovered={hoverStates[0]} />
+                          {/* <AnimatedCounterProgress isHovered={hoverStates[0]} /> */}
+                          <SideOne/>
                         </div>
-                        <div className="w-full flex flex-row items-center justify-between pt-3 px-3 border-t-[1.7px] border-[#F4F4F4]">
+                        {/* <div className="w-full flex flex-row items-center justify-between pt-3 px-3 border-t-[1.7px] border-[#F4F4F4]">
                           <p className="text-[#989898] text-[10.81px]">Today's Goal</p>
                           <p className="text-black text-[10.81px] px-5">2,500 steps</p>
-                        </div>
+                        </div> */}
                       </motion.div>
                     )}
-                    {index === 1 && <FitnessJourneyContent isHovered={hoverStates[1]} />}
-                    {index === 2 && <EarnRewardsContent isHovered={hoverStates[2]} />}
+                    {index === 1 && 
+                    // <FitnessJourneyContent isHovered={hoverStates[1]} />
+                    <SideTwo/>
+                    }
+                    {index === 2 && 
+                    // <EarnRewardsContent isHovered={hoverStates[2]} />
+                    <SideThree/>
+                    }
                   </AnimatePresence>
                 </motion.div>
 
