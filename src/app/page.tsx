@@ -81,7 +81,7 @@ export default function Home() {
         twitterHandle=""
       />
       <Starter />
-      <div id="how-it-works" className="w-full">
+      <div id="how-it-works" className="w-full z-20">
         <HowItWorks />
       </div>
       <div id="features" className="w-full">
