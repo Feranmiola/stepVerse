@@ -11,9 +11,9 @@ const Starter = () => {
   return (
     <>
       <div className="flex relative flex-row max-md:hidden w-full pt-[10rem] items-center justify-center">
-      <div className="absolute left-0 top-1/2 -translate-y-1/2">
-      <LeftIcons />
-    </div>
+        <div className="absolute left-0 top-1/2 -translate-y-1/2">
+          <LeftIcons />
+        </div>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -73,7 +73,7 @@ const Starter = () => {
           </div>
         </motion.div>
         <div className="absolute right-0 top-1/2 -translate-y-1/2">
-        <RightIcons />
+          <RightIcons />
         </div>
       </div>
 
@@ -82,10 +82,11 @@ const Starter = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col items-center justify-center space-y-6 max-w-[95%] w-full"
+          className="flex flex-col items-center justify-center -space-y-10 max-w-[95%] w-full"
         >
           <IconsMobile />
-
+          <div className="flex flex-col space-y-5 w-full">
+            
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -131,6 +132,8 @@ const Starter = () => {
               <p className="text-[#080808] text-[16.71px]">Follow on Twitter</p>
             </motion.a>
           </motion.div>
+
+          </div>
         </motion.div>
       </div>
     </>

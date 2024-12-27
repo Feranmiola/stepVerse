@@ -50,7 +50,7 @@ const Features = () => {
       title: "Fitness Meets Gaming",
       description: "Make every step count with gamified features like treasure hunts, team challenges, and step competitions. StepVerse isn't just a fitness app—it's a game that keeps you engaged and moving.",
       image: "https://res.cloudinary.com/debiu7z1b/image/upload/v1735224605/A_cygvsv.webp",
-      mobileImage: 'https://res.cloudinary.com/debiu7z1b/image/upload/v1733177210/mFrame_562_gz9sqy.webp',
+      mobileImage: 'https://res.cloudinary.com/debiu7z1b/image/upload/v1735224605/A_cygvsv.webp',
       color: "#55C056",
       leftContent: 'Proven Health Benefits',
       leftContentIcon: HealthBenefits
@@ -59,7 +59,7 @@ const Features = () => {
       title: "Family & Community",
       description: "Create a family or friend group to collectively track progress. Celebrate milestones, inspire each other, and build a healthier community together.",
       image: "https://res.cloudinary.com/debiu7z1b/image/upload/v1735224605/B_mcwczy.webp",
-      mobileImage: 'https://res.cloudinary.com/debiu7z1b/image/upload/v1733177210/m2Frame_562_rfa2tx.webp',
+      mobileImage: 'https://res.cloudinary.com/debiu7z1b/image/upload/v1735224605/B_mcwczy.webp',
       color: "#F63F00",
       leftContent: 'Real Rewards',
       leftContentIcon: RealRewardsIcon
@@ -68,7 +68,7 @@ const Features = () => {
       title: "Marketplace",
       description: "Use your SV Points to purchase tools, gear, or exclusive items in our in-app marketplace. Keep upgrading your experience to unlock more exciting rewards.",
       image: "https://res.cloudinary.com/debiu7z1b/image/upload/v1735224605/C_j5xg55.webp",
-      mobileImage: 'https://res.cloudinary.com/debiu7z1b/image/upload/v1733177211/m3Frame_562_hurnry.webp',
+      mobileImage: 'https://res.cloudinary.com/debiu7z1b/image/upload/v1735224605/C_j5xg55.webp',
       color: "#55C056",
       leftContent: 'Inclusive Platform',
       leftContentIcon: InclusiveIcon
@@ -77,7 +77,7 @@ const Features = () => {
       title: "Leaderboard Challenges",
       description: "Stay motivated with global leaderboards. Track your rankings daily, weekly, and monthly. Compete with friends or become the ultimate StepVerse champion.",
       image: "https://res.cloudinary.com/debiu7z1b/image/upload/v1735224605/D_zqm4cu.webp",
-      mobileImage: 'https://res.cloudinary.com/debiu7z1b/image/upload/v1733177211/m4Frame_562_mbl7tt.webp',
+      mobileImage: 'https://res.cloudinary.com/debiu7z1b/image/upload/v1735224605/D_zqm4cu.webp',
       color: "#E292E5",
       leftContent: 'Data-Driven Progress',
       leftContentIcon: DataDrivenProgressIcon
