@@ -64,7 +64,7 @@ html {
 
   /* Custom scrollbar thumb */
   body::after {
-    background: #55C056;
+    background: #007CFF;
     /* Updated to the requested color */
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
