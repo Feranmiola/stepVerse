@@ -85,11 +85,11 @@ const Movement = () => {
 
         <div className="w-full flex items-center justify-center">
           <Image
-            src="https://res.cloudinary.com/debiu7z1b/image/upload/v1733172629/Frame_579_m88sdr.webp"
+            src="https://res.cloudinary.com/debiu7z1b/image/upload/v1735570689/full-shot-friends-jogging-together_1_1_lm8nhm.webp"
             alt="Movement Image"
             width={377}
             height={385}
-            className="w-full h-auto"
+            className="w-full h-auto rounded-[12px]"
           />
         </div>
       </div>
