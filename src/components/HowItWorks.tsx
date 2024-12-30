@@ -8,10 +8,120 @@ import SideOne from "@/Icons/SideOne";
 import SideTwo from "@/Icons/SideTwo";
 import SideThree from "@/Icons/SideThree";
 import SideThreeMobile from "@/Icons/SideThreeMobile";
+import { ComplexProgressBar } from "@/components/ComplexProgressBar";
+import { WalkIconGray } from "@/Icons/SideOne";
+import { FireActiveStreak } from "@/Icons/SideOne";
+
 
 const HowItWorks: React.FC = () => {
   const [hoverStates, setHoverStates] = useState([false, false, false]);
   const [autoAnimationComplete, setAutoAnimationComplete] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [currentSteps, setCurrentSteps] = useState(1000);
+  const [currentStreak, setCurrentStreak] = useState(10);
+  const [currentDistance, setCurrentDistance] = useState(500);
+  const [currentCalories, setCurrentCalories] = useState(1500);
+
+  const initialSteps = 1000;
+  const initialStreak = 10;
+  const initialDistance = 500;
+  const initialCalories = 1500;
+
+  const goal = 2500;
+  const maxStreak = 20;
+  const maxDistance = 870;
+  const maxCalories = 2500;
+
+  // Function to animate counting up
+  const animateUp = () => {
+    setIsAnimating(true);
+    
+    let steps = currentSteps;
+    let streak = currentStreak;
+    let distance = currentDistance;
+    let calories = currentCalories;
+    
+    const interval = setInterval(() => {
+      if (steps < goal) {
+        steps += 25;
+        setCurrentSteps(steps);
+      }
+      if (streak < maxStreak) {
+        streak += 1;
+        setCurrentStreak(streak);
+      }
+      if (distance < maxDistance) {
+        distance += 5;
+        setCurrentDistance(distance);
+      }
+      if (calories < maxCalories) {
+        calories += 20;
+        setCurrentCalories(calories);
+      }
+
+      if (steps >= goal && streak >= maxStreak && 
+          distance >= maxDistance && calories >= maxCalories) {
+        clearInterval(interval);
+      }
+    }, 50);
+
+    return () => clearInterval(interval);
+  };
+
+  // Function to animate counting down
+  const animateDown = () => {
+    setIsAnimating(false);
+    
+    let steps = currentSteps;
+    let streak = currentStreak;
+    let distance = currentDistance;
+    let calories = currentCalories;
+    
+    const interval = setInterval(() => {
+      if (steps > initialSteps) {
+        steps -= 25;
+        setCurrentSteps(steps);
+      }
+      if (streak > initialStreak) {
+        streak -= 1;
+        setCurrentStreak(streak);
+      }
+      if (distance > initialDistance) {
+        distance -= 5;
+        setCurrentDistance(distance);
+      }
+      if (calories > initialCalories) {
+        calories -= 20;
+        setCurrentCalories(calories);
+      }
+
+      if (steps <= initialSteps && streak <= initialStreak && 
+          distance <= initialDistance && calories <= initialCalories) {
+        clearInterval(interval);
+      }
+    }, 50);
+
+    return () => clearInterval(interval);
+  };
+
+  // Handle initial animation
+  useEffect(() => {
+    const cleanup = animateUp();
+    return () => cleanup();
+  }, []);
+
+  // Handle hover animation
+  useEffect(() => {
+    let cleanup: () => void;
+    
+    if (hoverStates[0]) {
+      cleanup = animateUp();
+    } else {
+      cleanup = animateDown();
+    }
+
+    return () => cleanup();
+  }, [hoverStates[0]]);
 
   useEffect(() => {
     if (!autoAnimationComplete) {
@@ -104,28 +214,90 @@ const HowItWorks: React.FC = () => {
                 className="h-[486px] w-full flex flex-col justify-between"
               >
                 <motion.div 
-                  className={`w-[377px] h-[360px] rounded-2xl flex items-center justify-center bg-[#FBFAF9]`}
+                  className={`w-[387px] h-[360px] rounded-2xl flex items-center justify-center bg-[#FBFAF9]`}
                 >
                   <AnimatePresence>
                     {index === 0 && (
-                      <motion.div 
-                        key="card1"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        // className="w-[295px] h-[203.1px] flex flex-col justify-evenly rounded-[12.36px] bg-white"
-                      >
-                        {/* <p className="text-black text-[10.81px] px-3">Step Counter</p> */}
-                        <div className="flex items-center justify-center">
-                          {/* <AnimatedCounterProgress isHovered={hoverStates[0]} /> */}
-                          <SideOne/>
+                      <div className="h-[295.29px] w-[282.15px] bg-white rounded-[16px] border border-[#F0F2F5] flex flex-col items-center justify-between">
+                        <div className="w-full flex relative flex-1 items-center justify-center">
+                          <div className="absolute w-full h-full flex items-center justify-center z-0">
+                            <ComplexProgressBar 
+                              current={currentSteps} 
+                              goal={goal} 
+                            />
+                          </div>
+
+                          <div className="absolute w-full h-full flex flex-col items-center justify-center space-y-2">
+                            <WalkIconGray />
+                            <div className="-space-y-1 flex flex-col items-center justify-center">
+                              <AnimatedCounterProgress
+                                start={currentSteps}
+                                end={isAnimating ? goal : currentSteps}
+                                duration={1.5}
+                                className="text-[40px] text-black font-bold font-inter leading-none"
+                              />
+                              <p className="text-black font-inter text-sm leading-none">
+                                steps
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 transform">
+                            <div className="px-3 h-[25px] rounded-[50px] border-[1px] border-[#E7F2FF] bg-[#F7FBFF] flex flex-row items-center justify-center space-x-1">
+                              <p className="text-[#919191] text-[9.28px]">Current Streak:</p>
+                              <FireActiveStreak />
+                              <AnimatedCounterProgress
+                                start={currentStreak}
+                                end={isAnimating ? maxStreak : currentStreak}
+                                duration={1.5}
+                                className="font-bold font-inter text-[12px] text-[#151515]"
+                              />
+                            </div>
+                          </div>
                         </div>
-                        {/* <div className="w-full flex flex-row items-center justify-between pt-3 px-3 border-t-[1.7px] border-[#F4F4F4]">
-                          <p className="text-[#989898] text-[10.81px]">Today's Goal</p>
-                          <p className="text-black text-[10.81px] px-5">2,500 steps</p>
-                        </div> */}
-                      </motion.div>
+
+                        <div className="flex flex-row border-t-[1px] w-full border-[#F4F4F4] h-[84px] items-center justify-between">
+                          <div className="flex flex-1 justify-center items-center h-full">
+                            <div className="flex-col space-y-1 flex">
+                              <p className="text-[#919191] leading-none text-[9.28px]">Today's Goal</p>
+                              <p className="text-[#919191] leading-none text-[9.28px]">
+                                <span className={`text-black font-inter text-[16.23px] ${isAnimating ? "line-through" : ""}`}>
+                                  {goal}
+                                </span>{" "}
+                                steps
+                              </p>
+                            </div>
+                          </div>
+                          <div className="w-[103px] h-full border-l-[1px] flex items-center justify-center border-r-[1px] border-l-[#F4F4F4] border-r-[#F4F4F4]">
+                            <div className="flex-col space-y-1 flex items-end">
+                              <p className="text-[#919191] leading-none text-[9.28px]">Distance</p>
+                              <p className="text-[#919191] leading-none text-[9.28px]">
+                                <AnimatedCounterProgress
+                                  start={currentDistance}
+                                  end={isAnimating ? maxDistance : currentDistance}
+                                  duration={1.5}
+                                  className="text-black font-inter text-[16.23px]"
+                                />
+                                {" "}mi
+                              </p>
+                            </div>
+                          </div>
+                          <div className="flex flex-1 justify-center items-center h-full">
+                            <div className="flex-col space-y-1 flex items-end">
+                              <p className="text-[#919191] leading-none text-[9.28px]">Calories Burnt</p>
+                              <p className="text-[#919191] leading-none text-[9.28px]">
+                                <AnimatedCounterProgress
+                                  start={currentCalories}
+                                  end={isAnimating ? maxCalories : currentCalories}
+                                  duration={1.5}
+                                  className="text-black font-inter text-[16.23px]"
+                                />
+                                {" "}kcal
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     )}
                     {index === 1 && 
                     // <FitnessJourneyContent isHovered={hoverStates[1]} />
@@ -203,25 +375,87 @@ const HowItWorks: React.FC = () => {
                   className={`w-full h-[360px] rounded-2xl flex items-center justify-center bg-[#FBFAF9]`}
                 >
                   <AnimatePresence>
-                    {index === 0 && (
-                      <motion.div 
-                        key="card1"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="w-[295px] h-[203.1px] flex flex-col justify-evenly rounded-[12.36px] bg-white"
-                      >
-                        {/* <p className="text-black text-[10.81px] px-3">Step Counter</p>
-                        <div className="flex items-center justify-center">
-                          <AnimatedCounterProgress isHovered={hoverStates[0]} />
+                  {index === 0 && (
+                      <div className="h-[295.29px] w-[282.15px] bg-white rounded-[16px] border border-[#F0F2F5] flex flex-col items-center justify-between">
+                        <div className="w-full flex relative flex-1 items-center justify-center">
+                          <div className="absolute w-full h-full flex items-center justify-center z-0">
+                            <ComplexProgressBar 
+                              current={currentSteps} 
+                              goal={goal} 
+                            />
+                          </div>
+
+                          <div className="absolute w-full h-full flex flex-col items-center justify-center space-y-2">
+                            <WalkIconGray />
+                            <div className="-space-y-1 flex flex-col items-center justify-center">
+                              <AnimatedCounterProgress
+                                start={currentSteps}
+                                end={isAnimating ? goal : currentSteps}
+                                duration={1.5}
+                                className="text-[40px] text-black font-bold font-inter leading-none"
+                              />
+                              <p className="text-black font-inter text-sm leading-none">
+                                steps
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 transform">
+                            <div className="px-3 h-[25px] rounded-[50px] border-[1px] border-[#E7F2FF] bg-[#F7FBFF] flex flex-row items-center justify-center space-x-1">
+                              <p className="text-[#919191] text-[9.28px]">Current Streak:</p>
+                              <FireActiveStreak />
+                              <AnimatedCounterProgress
+                                start={currentStreak}
+                                end={isAnimating ? maxStreak : currentStreak}
+                                duration={1.5}
+                                className="font-bold font-inter text-[12px] text-[#151515]"
+                              />
+                            </div>
+                          </div>
                         </div>
-                        <div className="w-full flex flex-row items-center justify-between pt-3 px-3 border-t-[1.7px] border-[#F4F4F4]">
-                          <p className="text-[#989898] text-[10.81px]">Today's Goal</p>
-                          <p className="text-black text-[10.81px] px-5">2,500 steps</p>
-                        </div> */}
-                        <SideOne/>
-                      </motion.div>
+
+                        <div className="flex flex-row border-t-[1px] w-full border-[#F4F4F4] h-[84px] items-center justify-between">
+                          <div className="flex flex-1 justify-center items-center h-full">
+                            <div className="flex-col space-y-1 flex">
+                              <p className="text-[#919191] leading-none text-[9.28px]">Today's Goal</p>
+                              <p className="text-[#919191] leading-none text-[9.28px]">
+                                <span className={`text-black font-inter text-[16.23px] ${isAnimating ? "line-through" : ""}`}>
+                                  {goal}
+                                </span>{" "}
+                                steps
+                              </p>
+                            </div>
+                          </div>
+                          <div className="w-[103px] h-full border-l-[1px] flex items-center justify-center border-r-[1px] border-l-[#F4F4F4] border-r-[#F4F4F4]">
+                            <div className="flex-col space-y-1 flex items-end">
+                              <p className="text-[#919191] leading-none text-[9.28px]">Distance</p>
+                              <p className="text-[#919191] leading-none text-[9.28px]">
+                                <AnimatedCounterProgress
+                                  start={currentDistance}
+                                  end={isAnimating ? maxDistance : currentDistance}
+                                  duration={1.5}
+                                  className="text-black font-inter text-[16.23px]"
+                                />
+                                {" "}mi
+                              </p>
+                            </div>
+                          </div>
+                          <div className="flex flex-1 justify-center items-center h-full">
+                            <div className="flex-col space-y-1 flex items-end">
+                              <p className="text-[#919191] leading-none text-[9.28px]">Calories Burnt</p>
+                              <p className="text-[#919191] leading-none text-[9.28px]">
+                                <AnimatedCounterProgress
+                                  start={currentCalories}
+                                  end={isAnimating ? maxCalories : currentCalories}
+                                  duration={1.5}
+                                  className="text-black font-inter text-[16.23px]"
+                                />
+                                {" "}kcal
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     )}
                     {index === 1 && 
                     // <FitnessJourneyContent isHovered={hoverStates[1]} />
