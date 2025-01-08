@@ -105,8 +105,8 @@ export default function FAQPage() {
       <SEO
         title="StepVerse | FAQ"
         description="Explore some StepVerse Frequently Asked Questions."
-        canonical="https://stepverse.app"
-        ogImage="https://res.cloudinary.com/debiu7z1b/image/upload/v1735570689/full-shot-friends-jogging-together_1_1_lm8nhm.webp"
+        canonical="https://stepverse.app/"
+        ogImage="https://res.cloudinary.com/debiu7z1b/image/upload/v1736375946/full-shot-friends-jogging-together_1_l1htgb.png"
         ogType="website"
         twitterHandle=""
       />
