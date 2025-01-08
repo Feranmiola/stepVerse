@@ -76,7 +76,7 @@ export default function Home() {
         title="StepVerse"
         description="StepVerse is the ultimate fitness gaming experience built on Telegram Mini App where we make staying active fun and rewarding."
         canonical="https://stepverse.app"
-        ogImage="https://res.cloudinary.com/debiu7z1b/image/upload/v1733222710/Frame_657_emx4vk.jpg"
+        ogImage="https://res.cloudinary.com/debiu7z1b/image/upload/v1735570689/full-shot-friends-jogging-together_1_1_lm8nhm.webp"
         ogType="website"
         twitterHandle=""
       />

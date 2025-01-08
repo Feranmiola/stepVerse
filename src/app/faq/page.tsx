@@ -106,7 +106,7 @@ export default function FAQPage() {
         title="StepVerse | FAQ"
         description="Explore some StepVerse Frequently Asked Questions."
         canonical="https://stepverse.app"
-        ogImage="https://res.cloudinary.com/debiu7z1b/image/upload/v1733222710/Frame_657_emx4vk.jpg"
+        ogImage="https://res.cloudinary.com/debiu7z1b/image/upload/v1735570689/full-shot-friends-jogging-together_1_1_lm8nhm.webp"
         ogType="website"
         twitterHandle=""
       />
