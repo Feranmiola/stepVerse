@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import StepVerseIcon from "@/Icons/StepVerseIcon";
 import StepVerseIconMobile from "@/Icons/StepVerseIconMobile";
 import { useRouter } from "next-nprogress-bar";
@@ -10,8 +10,8 @@ const Navbar = () => {
   const pathname = usePathname();
 
   const scrollToSection = (sectionId: string) => {
-    const isHomePage = pathname === '/';
-    
+    const isHomePage = pathname === "/";
+
     if (!isHomePage) {
       router.push(`/#${sectionId}`);
     } else {
@@ -19,29 +19,31 @@ const Navbar = () => {
       if (element) {
         const navbarHeight = 80; // Adjust this value based on your navbar height
         const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+        const offsetPosition =
+          elementPosition + window.pageYOffset - navbarHeight;
 
         window.scrollTo({
           top: offsetPosition,
-          behavior: "smooth"
+          behavior: "smooth",
         });
       }
     }
   };
 
   useEffect(() => {
-    if (pathname.includes('#')) {
-      const sectionId = pathname.split('#')[1];
+    if (pathname.includes("#")) {
+      const sectionId = pathname.split("#")[1];
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
           const navbarHeight = 80; // Adjust this value based on your navbar height
           const elementPosition = element.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+          const offsetPosition =
+            elementPosition + window.pageYOffset - navbarHeight;
 
           window.scrollTo({
             top: offsetPosition,
-            behavior: "smooth"
+            behavior: "smooth",
           });
         }
       }, 100);
@@ -49,47 +51,44 @@ const Navbar = () => {
   }, [pathname]);
 
   const viewWhitepaper = () => {
-    window.open('/Whitepaper V1.0.pdf', '_blank');
+    window.open("/Whitepaper V1.0.pdf", "_blank");
   };
 
   return (
     <>
       <div className="w-full flex flex-row max-md:hidden items-center py-5 bg-white bg-opacity-80 backdrop-blur-md justify-center space-x-[20rem] z-[9999] fixed">
-        <div
-          className="cursor-pointer"
-          onClick={() => router.push('/')}
-        >
-          <StepVerseIcon/>
+        <div className="cursor-pointer" onClick={() => router.push("/")}>
+          <StepVerseIcon />
         </div>
 
         <div className="flex flex-row items-center space-x-10">
-          <p 
+          <p
             className="text-[#6B6B6B] cursor-pointer hover:text-black transition ease-in-out text-sm"
-            onClick={() => scrollToSection('how-it-works')}
+            onClick={() => scrollToSection("how-it-works")}
           >
             How it Works
           </p>
-          <p 
+          <p
             className="text-[#6B6B6B] cursor-pointer hover:text-black transition ease-in-out text-sm"
-            onClick={() => scrollToSection('features')}
+            onClick={() => scrollToSection("features")}
           >
             Features
           </p>
-          <p 
+          <p
             className="text-[#6B6B6B] cursor-pointer hover:text-black transition ease-in-out text-sm"
-            onClick={() => scrollToSection('faqs')}
+            onClick={() => scrollToSection("faqs")}
           >
             FAQs
           </p>
-          <p 
+          <p
             className="text-[#6B6B6B] cursor-pointer hover:text-black transition ease-in-out text-sm"
-            onClick={() => scrollToSection('community')}
+            onClick={() => scrollToSection("community")}
           >
             Community
           </p>
         </div>
 
-        <div 
+        <div
           className="w-[173px] h-[48px] rounded-[41.77px] bg-[#191918] cursor-pointer border-[1px] border-transparent hover:border-white transition ease-in-out flex items-center justify-center space-x-1"
           onClick={viewWhitepaper}
         >
@@ -98,18 +97,15 @@ const Navbar = () => {
       </div>
 
       <div className="w-full flex flex-row md:hidden items-center py-5 bg-white justify-between px-5 bg-opacity-80 backdrop-blur-md z-[9999] fixed">
-        <div
-          className="cursor-pointer"
-          onClick={() => router.push('/')}
-        >
-          <StepVerseIconMobile/>
+        <div className="cursor-pointer" onClick={() => router.push("/")}>
+          <StepVerseIconMobile />
         </div>
 
-        <div 
-          className="w-[199px] h-[44px] rounded-[41.77px] bg-[#191918] cursor-pointer border-[1px] border-transparent hover:border-white transition ease-in-out flex items-center justify-center space-x-1"
+        <div
+          className="w-[199px] h-[44px] rounded-[41.77px] hover:bg-[#191918] bg-[#191918] text-white text-[14px] hover:text-[#191918] cursor-pointer border-[1px] border-transparent hover:border-white transition ease-in-out flex items-center justify-center space-x-1"
           onClick={viewWhitepaper}
         >
-          <p className="text-white text-[14px]">View Whitepaper</p>
+          View Whitepaper
         </div>
       </div>
     </>
@@ -117,4 +113,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
