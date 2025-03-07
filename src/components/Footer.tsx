@@ -108,7 +108,7 @@ const Footer = () => {
                     whileHover={{ scale: 1.05 }}
                   >
                     <MailIcon />
-                    <p className="text-[#55C056] text-base">ir@step.com</p>
+                    <p className="text-[#007CFF] text-base">ir@step.com</p>
                   </motion.a>
                 </motion.div>
 
@@ -125,7 +125,7 @@ const Footer = () => {
                     whileHover={{ scale: 1.05 }}
                   >
                     <MailIcon />
-                    <p className="text-[#55C056] text-base">com@step.com</p>
+                    <p className="text-[#007CFF] text-base">com@step.com</p>
                   </motion.a>
                 </motion.div>
               </motion.div>
@@ -230,7 +230,7 @@ const Footer = () => {
                     whileHover={{ scale: 1.05 }}
                   >
                     <MailIcon />
-                    <p className="text-[#55C056] text-base">ir@step.com</p>
+                    <p className="text-[#007CFF] text-base">ir@step.com</p>
                   </motion.a>
                 </motion.div>
 
@@ -247,7 +247,7 @@ const Footer = () => {
                     whileHover={{ scale: 1.05 }}
                   >
                     <MailIcon />
-                    <p className="text-[#55C056] text-base">com@step.com</p>
+                    <p className="text-[#007CFF] text-base">com@step.com</p>
                   </motion.a>
                 </motion.div>
               </motion.div>

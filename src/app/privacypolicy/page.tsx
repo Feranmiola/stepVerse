@@ -541,7 +541,7 @@ export default function PrivacyPolicy() {
                 </p>
                 <a
                   href="mailto:privacy@stepverse.com"
-                  className="w-full text-[#55C056] text-base leading-tight"
+                  className="w-full text-[#007CFF] text-base leading-tight"
                 >
                   Email: privacy@stepverse.com
                 </a>
