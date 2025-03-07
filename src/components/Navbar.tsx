@@ -89,10 +89,10 @@ const Navbar = () => {
         </div>
 
         <div
-          className="w-[173px] h-[48px] rounded-[41.77px] bg-[#191918] cursor-pointer border-[1px] border-transparent hover:border-white transition ease-in-out flex items-center justify-center space-x-1"
+          className="w-[173px] h-[48px] rounded-[41.77px] bg-[#191918] text-white text-[14px] hover:bg-transparent hover:text-[#191918] hover:border-[#191918] hover:border-2 cursor-pointer transition ease-in-out flex items-center justify-center space-x-1"
           onClick={viewWhitepaper}
         >
-          <p className="text-white text-[14px]">View Whitepaper</p>
+          View Whitepaper
         </div>
       </div>
 
@@ -102,7 +102,7 @@ const Navbar = () => {
         </div>
 
         <div
-          className="w-[199px] h-[44px] rounded-[41.77px] hover:bg-[#191918] bg-[#191918] text-white text-[14px] hover:text-[#191918] cursor-pointer border-[1px] border-transparent hover:border-white transition ease-in-out flex items-center justify-center space-x-1"
+          className="w-[199px] h-[44px] rounded-[41.77px] hover:bg-[#191918] bg-[#191918] text-white hover:bg-transparent text-[14px] hover:text-[#191918] cursor-pointer border-[1px] border-transparent hover:border-white transition ease-in-out flex items-center justify-center space-x-1"
           onClick={viewWhitepaper}
         >
           View Whitepaper
