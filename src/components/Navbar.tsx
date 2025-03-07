@@ -102,7 +102,7 @@ const Navbar = () => {
         </div>
 
         <div
-          className="w-[199px] h-[44px] rounded-[41.77px] hover:bg-[#191918] bg-[#191918] text-white hover:bg-transparent text-[14px] hover:text-[#191918] cursor-pointer border-[1px] border-transparent hover:border-white transition ease-in-out flex items-center justify-center space-x-1"
+          className="w-[199px] h-[44px] rounded-[41.77px] hover:bg-[#191918] bg-[#191918] text-white text-[14px] cursor-pointer border-[1px] border-transparent hover:border-white transition ease-in-out flex items-center justify-center space-x-1"
           onClick={viewWhitepaper}
         >
           View Whitepaper
